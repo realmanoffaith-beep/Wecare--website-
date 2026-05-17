@@ -1,445 +1,1478 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>We Care Sudbury – Doctor-Led Home Support</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>We Care Sudbury | Doctor-Led Senior Home Support</title>
+<meta name="description" content="Doctor-led senior home support in Greater Sudbury. Wellness visits, companionship, medication reminders, respite support, and more."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<style>
+/* ═══════════════════ VARIABLES ═══════════════════ */
+:root{
+  --navy:#0d2b45;
+  --navy-dk:#071c2e;
+  --navy-lt:#e8f0f7;
+  --teal:#1b7a6e;
+  --teal-lt:#e4f3f1;
+  --teal-md:#2aab98;
+  --gold:#c8943a;
+  --gold-lt:#fdf3e4;
+  --cream:#faf8f5;
+  --white:#ffffff;
+  --g100:#f0f4f8;
+  --g200:#dce4ed;
+  --g400:#8fa3b8;
+  --g600:#4a6178;
+  --g800:#1e3346;
+  --shadow-sm:0 2px 12px rgba(13,43,69,.08);
+  --shadow-md:0 8px 32px rgba(13,43,69,.12);
+  --shadow-lg:0 20px 60px rgba(13,43,69,.18);
+  --r:14px;
+  --r-sm:8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--g800);background:var(--cream);line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;line-height:1.22}
+a{text-decoration:none;color:inherit}
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+/* ═══════════════════ UTILITIES ═══════════════════ */
+.container{max-width:1160px;margin:0 auto;padding:0 28px}
+.container-sm{max-width:780px;margin:0 auto;padding:0 28px}
+section{scroll-margin-top:72px}
+.lbl{font-family:'DM Sans',sans-serif;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:3px;color:var(--teal);margin-bottom:12px;display:block}
+.stitle{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin-bottom:16px;color:var(--navy)}
+.ssub{font-size:1rem;color:var(--g400);line-height:1.85;max-width:520px}
+.text-center{text-align:center}
+.text-center .ssub{margin-left:auto;margin-right:auto}
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      color: #333;
-      background: #ffffff;
-      line-height: 1.6;
-    }
-    h1, h2, h3 {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      color: #003c78;
-    }
-    a { text-decoration: none; }
+/* ═══════════════════ BUTTONS ═══════════════════ */
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 30px;border-radius:50px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.9rem;cursor:pointer;border:none;transition:all .28s cubic-bezier(.34,1.56,.64,1);letter-spacing:.2px;white-space:nowrap}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-dk);transform:translateY(-2px);box-shadow:0 10px 28px rgba(13,43,69,.35)}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-teal:hover{background:#155f55;transform:translateY(-2px);box-shadow:0 10px 28px rgba(27,122,110,.35)}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:#a87830;transform:translateY(-2px);box-shadow:0 10px 28px rgba(200,148,58,.4)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid var(--g200)}
+.btn-outline:hover{border-color:var(--navy);background:var(--navy);color:#fff;transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4)}
+.btn-outline-white:hover{background:#fff;color:var(--navy);transform:translateY(-2px)}
+.btn-white{background:#fff;color:var(--navy)}
+.btn-white:hover{background:var(--cream);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.btn-sm{padding:10px 22px;font-size:.82rem}
 
-    /* Layout Utility */
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-    }
+/* ═══════════════════ NAV ═══════════════════ */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,248,245,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--g200);transition:box-shadow .3s}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:1160px;margin:0 auto;padding:0 24px;gap:16px}
+.logo{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.logo-mark{width:38px;height:38px;background:linear-gradient(135deg,var(--navy),var(--teal));border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem}
+.logo-text{font-family:'Playfair Display',serif;font-weight:700;font-size:1.08rem;color:var(--navy)}
+.logo-text span{color:var(--teal)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1;justify-content:center}
+.nav-links a{font-family:'DM Sans',sans-serif;font-weight:500;font-size:.75rem;color:var(--g600);padding:7px 10px;border-radius:8px;transition:all .2s;text-transform:uppercase;letter-spacing:.6px}
+.nav-links a:hover{color:var(--navy);background:var(--navy-lt)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-shrink:0}
+.hamburger span{display:block;width:22px;height:2px;background:var(--g600);margin:5px 0;border-radius:2px;transition:all .3s}
+.mob{display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:var(--cream);z-index:999;padding:28px;overflow-y:auto}
+.mob.open{display:block}
+.mob a{display:block;font-family:'DM Sans',sans-serif;font-weight:600;font-size:1rem;color:var(--g600);padding:14px 0;border-bottom:1px solid var(--g200)}
+.mob a:hover{color:var(--navy)}
+.mob .btn{margin-top:16px;width:100%;justify-content:center}
 
-    /* Hero */
-    .hero {
-      background: url('https://via.placeholder.com/1600x900') center/cover no-repeat;
-      padding: 120px 20px;
-      color: white;
-      text-align: left;
-      position: relative;
-    }
-    .hero-overlay {
-      background: rgba(0,0,0,0.55);
-      position: absolute;
-      top: 0; left: 0; right:0; bottom:0;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 600px;
-    }
-    .hero h1 {
-      font-size: 42px;
-      line-height: 1.2;
-      margin-bottom: 15px;
-      color: #ffffff;
-    }
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 30px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 14px 25px;
-      border-radius: 6px;
-      font-weight: 600;
-      margin-right: 10px;
-      margin-bottom: 10px;
-      transition: background 0.2s ease;
-    }
-    .btn-primary {
-      background: #1b72c3;
-      color: #fff;
-    }
-    .btn-primary:hover {
-      background: #155a9c;
-    }
-    .btn-secondary {
-      background: #44a574;
-      color: #fff;
-    }
-    .btn-secondary:hover {
-      background: #358259;
-    }
+/* ═══════════════════ ANIMATIONS ═══════════════════ */
+.fu{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.fu.vis{opacity:1;transform:translateY(0)}
 
-    /* Contact Strip */
-    .contact-strip {
-      background: #f7f7f7;
-      padding: 12px;
-      text-align: center;
-      font-size: 15px;
-      color: #555;
-      border-bottom: 1px solid #eaeaea;
-    }
+/* ═══════════════════ HERO ═══════════════════ */
+#home{min-height:100vh;background:var(--navy-dk);display:flex;align-items:center;padding-top:72px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231b7a6e' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-glow{position:absolute;top:-120px;right:-80px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(27,122,110,.18) 0%,transparent 70%);pointer-events:none}
+.hero-glow2{position:absolute;bottom:-80px;left:-60px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(200,148,58,.1) 0%,transparent 70%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:64px;align-items:center;padding:80px 0;position:relative;z-index:1}
+.hero-txt{color:#fff}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(27,122,110,.25);border:1px solid rgba(42,171,152,.3);border-radius:50px;padding:8px 18px;font-size:.76rem;font-weight:600;color:rgba(255,255,255,.9);margin-bottom:28px;backdrop-filter:blur(8px)}
+.hero-badge i{color:var(--teal-md)}
+.hero-txt h1{font-size:clamp(2rem,4.8vw,3.2rem);font-weight:700;color:#fff;margin-bottom:20px;line-height:1.15}
+.hero-txt h1 em{color:var(--teal-md);font-style:normal}
+.hero-txt p{font-size:1.05rem;color:rgba(255,255,255,.7);margin-bottom:36px;line-height:1.85;max-width:460px}
+.hero-btns{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+.hero-divider{width:1px;height:36px;background:rgba(255,255,255,.2)}
+.hero-stats{display:flex;gap:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);flex-wrap:wrap}
+.hero-stat strong{display:block;font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--teal-md)}
+.hero-stat span{font-size:.78rem;color:rgba(255,255,255,.5);font-weight:500;letter-spacing:.3px}
 
-    /* Section */
-    section {
-      padding: 60px 20px;
-    }
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .bg-light {
-      background: #f7fafc;
-    }
+/* Hero Card */
+.hero-card{background:rgba(255,255,255,.07);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.13);border-radius:20px;padding:36px;position:relative;overflow:hidden}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--gold))}
+.hero-card-icon{width:52px;height:52px;background:linear-gradient(135deg,var(--teal),var(--teal-md));border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;margin-bottom:20px}
+.hero-card h3{font-size:1.15rem;color:#fff;margin-bottom:18px;font-weight:600}
+.hero-card ul{list-style:none}
+.hero-card li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:.88rem;color:rgba(255,255,255,.78);display:flex;align-items:center;gap:10px}
+.hero-card li:last-child{border:none}
+.hero-card li i{color:var(--teal-md);font-size:.75rem}
 
-    /* Icon grid */
-    .icon-grid {
-      display: grid;
-      gap: 25px;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    }
-    .icon-card {
-      padding: 25px;
-      background: #f8f9fb;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    .icon-card .icon {
-      font-size: 32px;
-      display: block;
-      margin-bottom: 10px;
-    }
-    .icon-card h3 {
-      font-size: 18px;
-      margin-top: 10px;
-    }
+/* ═══════════════════ CONTACT STRIP ═══════════════════ */
+.cstrip{background:var(--navy);padding:15px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.cstrip-in{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
+.cstrip a{color:rgba(255,255,255,.65);font-size:.85rem;font-weight:500;display:flex;align-items:center;gap:8px;transition:color .2s}
+.cstrip a:hover{color:#fff}
+.cstrip i{color:var(--gold)}
 
-    /* Testimonials */
-    .testimonial {
-      background: #f3f7fc;
-      padding: 25px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      font-style: italic;
-      border-left: 4px solid #1b72c3;
-    }
+/* ═══════════════════ TRUST SECTION ═══════════════════ */
+#trust{padding:86px 0;background:#fff}
+.trust-header{text-align:center;max-width:560px;margin:0 auto 52px}
+.tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.tcard{background:var(--cream);border-radius:var(--r);padding:28px 20px;text-align:center;transition:all .3s;border:1.5px solid transparent;cursor:default}
+.tcard:hover{border-color:var(--g200);background:#fff;transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.tico{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin:0 auto 16px}
+.tico.navy{background:var(--navy-lt);color:var(--navy)}
+.tico.teal{background:var(--teal-lt);color:var(--teal)}
+.tico.gold{background:var(--gold-lt);color:var(--gold)}
+.tcard h4{font-family:'DM Sans',sans-serif;font-size:.93rem;font-weight:700;margin-bottom:7px;color:var(--navy)}
+.tcard p{font-size:.82rem;color:var(--g400);line-height:1.65}
 
-    /* CTA */
-    .cta {
-      background: #eaf3fb;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    .cta h2 {
-      margin-bottom: 25px;
-    }
+/* ═══════════════════ SERVICES ═══════════════════ */
+#services{padding:86px 0;background:var(--cream)}
+.svcs-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:20px}
+.sgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.scard{border-radius:var(--r);padding:28px;background:#fff;border:1.5px solid var(--g200);transition:all .3s;position:relative;overflow:hidden}
+.scard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--teal-md));transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.scard:hover::after{transform:scaleX(1)}
+.scard:hover{box-shadow:var(--shadow-md);transform:translateY(-4px);border-color:transparent}
+.sico{width:48px;height:48px;background:var(--navy-lt);color:var(--navy);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:16px}
+.scard h3{font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:8px;color:var(--navy)}
+.scard p{font-size:.82rem;color:var(--g400);line-height:1.7}
+.disc{background:linear-gradient(135deg,#fff9ee,#fff4dc);border-left:4px solid var(--gold);border-radius:var(--r-sm);padding:18px 22px;margin-top:36px;display:flex;align-items:flex-start;gap:12px}
+.disc i{color:var(--gold);margin-top:2px;flex-shrink:0}
+.disc p{font-size:.86rem;color:var(--g600)}
 
-    /* Footer */
-    footer {
-      background: #003c78;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-      font-size: 14px;
-    }
+/* ═══════════════════ PRICING ═══════════════════ */
+#pricing{padding:86px 0;background:#fff}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px;align-items:start}
+.pcard{background:var(--cream);border-radius:20px;padding:40px 32px;border:2px solid var(--g200);transition:all .3s;position:relative}
+.pcard.feat{background:var(--navy);border-color:var(--navy);transform:scale(1.04);z-index:1}
+.pcard:hover:not(.feat){box-shadow:var(--shadow-lg);border-color:var(--g200)}
+.pcard.feat:hover{box-shadow:var(--shadow-lg)}
+.pop-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:.7rem;font-weight:700;padding:6px 20px;border-radius:50px;white-space:nowrap;letter-spacing:.5px;font-family:'DM Sans',sans-serif}
+.p-name{font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:700;color:var(--g400);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+.pcard.feat .p-name{color:rgba(255,255,255,.5)}
+.p-price{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:var(--navy);line-height:1;margin-bottom:4px}
+.pcard.feat .p-price{color:#fff}
+.p-price sup{font-size:1.3rem;vertical-align:super}
+.p-mo{font-size:.8rem;color:var(--g400);margin-bottom:28px;font-weight:500}
+.pcard.feat .p-mo{color:rgba(255,255,255,.5)}
+.p-feats{list-style:none;margin-bottom:32px}
+.p-feats li{padding:10px 0;border-bottom:1px solid var(--g200);font-size:.87rem;color:var(--g600);display:flex;align-items:center;gap:10px}
+.pcard.feat .p-feats li{border-color:rgba(255,255,255,.1);color:rgba(255,255,255,.8)}
+.p-feats li i{color:var(--teal)}
+.pcard.feat .p-feats li i{color:var(--teal-md)}
+.pcard .btn{width:100%;justify-content:center}
+.pricing-note{text-align:center;margin-top:32px;font-size:.86rem;color:var(--g400)}
+.pricing-note a{color:var(--navy);font-weight:600}
 
-    @media(max-width: 600px) {
-      .hero h1 { font-size: 30px; }
-      .hero p { font-size: 18px; }
-      .btn { display: block; margin-right: 0; text-align: center; }
-    }
-  </style>
+/* ═══════════════════ WHY US ═══════════════════ */
+#why{padding:86px 0;background:var(--cream)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.why-vis{background:linear-gradient(145deg,var(--navy),var(--teal));border-radius:24px;padding:48px;color:#fff;position:relative;overflow:hidden}
+.why-vis::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.06)}
+.why-vis-icon{width:72px;height:72px;background:rgba(255,255,255,.15);border-radius:18px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.8rem;margin-bottom:24px}
+.why-vis h3{font-size:1.4rem;color:#fff;margin-bottom:12px}
+.why-vis p{font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.85;margin-bottom:28px}
+.why-pts{display:flex;flex-direction:column;gap:16px}
+.wpt{display:flex;align-items:flex-start;gap:14px;padding:14px;background:rgba(255,255,255,.1);border-radius:10px;backdrop-filter:blur(6px)}
+.wpi{width:36px;height:36px;min-width:36px;border-radius:8px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.85rem}
+.wpt h4{font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:700;color:#fff;margin-bottom:2px}
+.wpt p{font-size:.8rem;color:rgba(255,255,255,.65)}
+.why-list{margin-top:28px;display:flex;flex-direction:column;gap:0}
+.wlt{display:flex;align-items:flex-start;gap:14px;padding:18px 0;border-bottom:1px solid var(--g200)}
+.wlt:last-child{border:none}
+.wlt-ico{width:40px;height:40px;min-width:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.88rem}
+.wlt-ico.teal{background:var(--teal-lt);color:var(--teal)}
+.wlt-ico.navy{background:var(--navy-lt);color:var(--navy)}
+.wlt h4{font-family:'DM Sans',sans-serif;font-size:.93rem;font-weight:700;color:var(--navy);margin-bottom:3px}
+.wlt p{font-size:.83rem;color:var(--g400)}
+
+/* ═══════════════════ ABOUT ═══════════════════ */
+#about{padding:86px 0;background:#fff}
+.abt-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.abt-visual{position:relative}
+.abt-vis-main{background:linear-gradient(145deg,var(--navy-dk),var(--navy),var(--teal));border-radius:24px;aspect-ratio:4/3.5;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:40px;position:relative;overflow:hidden}
+.abt-vis-main::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='20' cy='20' r='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.abt-vis-main i{font-size:3rem;opacity:.8;margin-bottom:18px;position:relative;z-index:1}
+.abt-vis-main h3{font-size:1.3rem;color:#fff;margin-bottom:10px;position:relative;z-index:1}
+.abt-vis-main p{font-size:.85rem;color:rgba(255,255,255,.7);line-height:1.8;position:relative;z-index:1}
+.abt-float{position:absolute;bottom:-20px;right:-20px;background:#fff;border-radius:16px;padding:18px 22px;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:12px}
+.abt-float-ico{width:42px;height:42px;background:var(--teal-lt);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:1rem}
+.abt-float strong{display:block;font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--navy)}
+.abt-float span{font-size:.75rem;color:var(--g400);font-weight:500}
+.mbox{border-radius:12px;padding:24px 28px;color:#fff;margin-top:20px}
+.mbox.navy{background:var(--navy)}
+.mbox.teal{background:var(--teal)}
+.mbox h4{font-family:'DM Sans',sans-serif;font-size:.7rem;text-transform:uppercase;letter-spacing:2px;opacity:.6;margin-bottom:8px}
+.mbox p{font-size:.9rem;line-height:1.8;opacity:.9}
+
+/* ═══════════════════ REVIEWS ═══════════════════ */
+#reviews{padding:86px 0;background:var(--cream)}
+.rev-box{background:linear-gradient(145deg,var(--navy),#1a4a70);border-radius:24px;padding:64px 48px;text-align:center;max-width:720px;margin:0 auto;position:relative;overflow:hidden;color:#fff}
+.rev-box::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(27,122,110,.25)}
+.rev-box::after{content:'';position:absolute;bottom:-60px;left:-60px;width:240px;height:240px;border-radius:50%;background:rgba(200,148,58,.15)}
+.g-logo{margin:0 auto 20px;width:52px;height:52px;position:relative;z-index:1}
+.rev-stars{font-size:1.6rem;color:var(--gold);margin-bottom:14px;letter-spacing:3px;position:relative;z-index:1}
+.gbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:50px;padding:9px 20px;font-size:.82rem;font-weight:600;color:rgba(255,255,255,.9);margin-bottom:26px;position:relative;z-index:1;backdrop-filter:blur(8px)}
+.rev-box h3{font-size:1.7rem;font-weight:700;color:#fff;margin-bottom:14px;position:relative;z-index:1}
+.rev-box > p{font-size:.95rem;color:rgba(255,255,255,.7);line-height:1.85;margin-bottom:30px;max-width:480px;margin-left:auto;margin-right:auto;position:relative;z-index:1}
+.rev-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.rev-note{font-size:.78rem;color:rgba(255,255,255,.45);margin-top:22px;position:relative;z-index:1}
+
+/* ═══════════════════ FAQ ═══════════════════ */
+#faq{padding:86px 0;background:#fff}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:52px}
+.fi{background:var(--cream);border-radius:var(--r);padding:24px;border:1.5px solid var(--g200);cursor:pointer;transition:all .3s}
+.fi:hover{box-shadow:var(--shadow-sm)}
+.fi.open{border-color:var(--navy);background:#fff}
+.fi-q{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.fi-q h4{font-family:'DM Sans',sans-serif;font-size:.93rem;font-weight:700;line-height:1.5;color:var(--navy)}
+.fi-q i{color:var(--g400);transition:transform .3s;min-width:16px;margin-top:3px}
+.fi.open .fi-q i{transform:rotate(45deg);color:var(--navy)}
+.fi-a{display:none;margin-top:13px;font-size:.86rem;color:var(--g400);line-height:1.85;padding-top:13px;border-top:1px solid var(--g200)}
+.fi.open .fi-a{display:block}
+
+/* ═══════════════════ CAREERS ═══════════════════ */
+#careers{padding:86px 0;background:var(--cream)}
+.pos-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:60px}
+.pos-card{border:2px solid var(--g200);border-radius:20px;padding:36px;transition:all .3s;background:#fff}
+.pos-card:hover{border-color:var(--navy);box-shadow:var(--shadow-md)}
+.pos-ico{width:52px;height:52px;background:var(--navy-lt);color:var(--navy);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;margin-bottom:16px}
+.pos-card h3{font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:14px;color:var(--navy)}
+.pos-card h5{font-family:'DM Sans',sans-serif;font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--g400);margin:16px 0 10px}
+.pos-card ul{list-style:none}
+.pos-card ul li{font-size:.83rem;color:var(--g600);padding:4px 0;display:flex;align-items:flex-start;gap:8px}
+.pos-card ul li::before{content:'–';color:var(--teal);font-weight:700;flex-shrink:0}
+.ben-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:56px}
+.ben-card{text-align:center;background:#fff;border-radius:var(--r);padding:28px 18px;border:1.5px solid var(--g200)}
+.ben-card i{font-size:1.3rem;color:var(--teal);margin-bottom:13px;display:block}
+.ben-card h4{font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:700;margin-bottom:6px;color:var(--navy)}
+.ben-card p{font-size:.8rem;color:var(--g400)}
+
+/* ═══════════════════ FORMS ═══════════════════ */
+.fcard{background:#fff;border-radius:20px;padding:40px;box-shadow:var(--shadow-sm);border:1.5px solid var(--g200)}
+.fcard h3{font-family:'DM Sans',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:6px;color:var(--navy)}
+.fcard .form-intro{font-size:.84rem;color:var(--g400);margin-bottom:24px}
+.fg{margin-bottom:18px}
+.fg label{display:block;font-size:.8rem;font-weight:600;color:var(--g600);margin-bottom:6px;letter-spacing:.2px}
+.fg input,.fg select,.fg textarea{width:100%;padding:12px 16px;border:1.5px solid var(--g200);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--g800);transition:border-color .2s,box-shadow .2s;outline:none;background:#fff}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(13,43,69,.08)}
+.fg textarea{min-height:110px;resize:vertical;line-height:1.65}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fsub{width:100%;justify-content:center;padding:15px;font-size:.95rem;margin-top:4px}
+.smsg{display:none;background:var(--teal-lt);border:1.5px solid var(--teal);color:var(--teal);border-radius:var(--r-sm);padding:14px 18px;font-size:.86rem;font-weight:600;margin-top:16px}
+.smsg.show{display:block}
+.emsg{display:none;background:#fef2f2;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--r-sm);padding:14px 18px;font-size:.86rem;font-weight:600;margin-top:16px}
+.emsg.show{display:block}
+.check-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:20px}
+.check-row input[type=checkbox]{width:auto;margin-top:4px;accent-color:var(--navy)}
+.check-row label{font-size:.8rem;color:var(--g400);line-height:1.65}
+
+/* ═══════════════════ APPLY ═══════════════════ */
+#apply{padding:72px 0;background:var(--navy-lt)}
+
+/* ═══════════════════ EMPLOYER PORTAL ═══════════════════ */
+#employer{padding:86px 0;background:#fff}
+.portal-wrap{max-width:900px;margin:0 auto}
+.portal-signin-box{background:var(--cream);border-radius:20px;padding:60px 44px;text-align:center;border:2px solid var(--g200)}
+.portal-signin-box > i.fa-lock{font-size:2.6rem;color:var(--navy);margin-bottom:20px}
+.portal-signin-box h3{font-family:'DM Sans',sans-serif;font-size:1.5rem;font-weight:700;margin-bottom:10px;color:var(--navy)}
+.portal-signin-box p{font-size:.93rem;color:var(--g400);margin-bottom:28px;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.8}
+.terms-row{max-width:480px;margin:0 auto 26px;text-align:left}
+.portal-denied{display:none;background:#fef2f2;border-radius:20px;padding:44px;text-align:center;border:2px solid #fca5a5}
+.portal-denied i{font-size:2.3rem;color:#dc2626;margin-bottom:16px}
+.portal-denied h3{color:#dc2626;font-family:'DM Sans',sans-serif;font-size:1.3rem;margin-bottom:8px}
+.portal-denied p{color:var(--g400);font-size:.9rem}
+.portal-content{display:none}
+.portal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;flex-wrap:wrap;gap:12px;padding-bottom:20px;border-bottom:1.5px solid var(--g200)}
+.portal-header h3{font-family:'DM Sans',sans-serif;font-size:1.2rem;font-weight:700;color:var(--navy)}
+.portal-header p{font-size:.83rem;color:var(--g400)}
+.portal-user-pill{background:var(--teal-lt);border-radius:50px;padding:9px 20px;font-size:.83rem;font-weight:600;color:var(--teal);display:flex;align-items:center;gap:8px}
+.portal-actions{display:flex;align-items:center;gap:12px}
+.candidate-filters{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.cand-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.cand-card{background:var(--cream);border-radius:var(--r);padding:26px;border:1.5px solid var(--g200);transition:all .3s}
+.cand-card:hover{box-shadow:var(--shadow-md);border-color:var(--navy)}
+.cand-top{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.cand-av{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--teal));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.1rem;flex-shrink:0}
+.cand-name{font-family:'DM Sans',sans-serif;font-weight:700;font-size:.97rem;color:var(--navy)}
+.cand-role{font-size:.78rem;color:var(--teal);font-weight:600}
+.cand-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:13px}
+.tag{background:var(--navy-lt);color:var(--navy);border-radius:50px;padding:4px 13px;font-size:.73rem;font-weight:600}
+.tag.teal{background:var(--teal-lt);color:var(--teal)}
+.cand-info{font-size:.83rem;color:var(--g400);line-height:1.7}
+.new-badge{background:var(--gold);color:#fff;font-size:.66rem;font-weight:700;padding:3px 9px;border-radius:50px;margin-left:6px}
+.portal-note{text-align:center;margin-top:26px;font-size:.82rem;color:var(--g400)}
+.portal-note a,.resume-link a,.intro-request a{color:var(--navy);font-weight:700}
+.resume-link{margin-top:12px;font-size:.82rem}
+.intro-request{margin-top:10px;font-size:.78rem;color:var(--g400)}
+
+/* ═══════════════════ CONTACT ═══════════════════ */
+#contact{padding:86px 0;background:var(--cream)}
+.con-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.con-info h3{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;margin-bottom:14px;color:var(--navy)}
+.con-info > p{color:var(--g400);line-height:1.85;margin-bottom:28px;font-size:.93rem}
+.ci-list{list-style:none}
+.ci-list li{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--g200)}
+.ci-list li:last-child{border:none}
+.ci-ico{width:40px;height:40px;min-width:40px;background:var(--navy-lt);color:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.88rem}
+.ci-list strong{display:block;font-size:.78rem;font-weight:700;color:var(--navy);margin-bottom:3px;letter-spacing:.2px}
+.ci-list span,.ci-list a{font-size:.87rem;color:var(--g400)}
+.ci-list a:hover{color:var(--navy)}
+
+/* ═══════════════════ BOOK ═══════════════════ */
+#book{padding:86px 0;background:#fff}
+.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.book-info{padding-top:8px}
+.expect-box{background:var(--navy-lt);border-radius:14px;padding:26px;margin:22px 0}
+.expect-box h4{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:14px}
+.ck-list{list-style:none}
+.ck-list li{padding:8px 0;font-size:.87rem;color:var(--g600);display:flex;align-items:center;gap:10px}
+.ck-list li i{color:var(--teal)}
+
+/* ═══════════════════ BLOG ═══════════════════ */
+#blog{padding:86px 0;background:var(--cream)}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+.bc{background:#fff;border-radius:20px;overflow:hidden;border:1.5px solid var(--g200);transition:all .3s;cursor:default}
+.bc:hover{box-shadow:var(--shadow-md);transform:translateY(-4px)}
+.bc-img{height:160px;background:linear-gradient(135deg,var(--navy-lt),var(--teal-lt));display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:var(--navy)}
+.bc-body{padding:26px}
+.bc-tag{font-size:.68rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:9px;display:block}
+.bc-body h3{font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:8px;line-height:1.45;color:var(--navy)}
+.bc-body p{font-size:.82rem;color:var(--g400);line-height:1.7}
+
+/* ═══════════════════ CTA BANNER ═══════════════════ */
+.cta-ban{background:linear-gradient(135deg,var(--navy-dk),var(--navy),var(--teal));padding:86px 0;text-align:center;position:relative;overflow:hidden}
+.cta-ban::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:rgba(27,122,110,.2)}
+.cta-ban h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;color:#fff;margin-bottom:14px;position:relative;z-index:1}
+.cta-ban p{font-size:.98rem;color:rgba(255,255,255,.65);margin-bottom:32px;position:relative;z-index:1}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+
+/* ═══════════════════ FOOTER ═══════════════════ */
+footer{background:var(--navy-dk);color:rgba(255,255,255,.55);padding:64px 0 30px}
+.f-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:52px}
+.f-brand p{font-size:.83rem;line-height:1.85;margin-top:16px;color:rgba(255,255,255,.4)}
+.f-brand .logo-text{color:#fff}
+footer h5{font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:700;color:rgba(255,255,255,.9);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:18px}
+footer ul{list-style:none}
+footer ul li{margin-bottom:10px}
+footer ul li a{font-size:.84rem;color:rgba(255,255,255,.4);transition:color .2s}
+footer ul li a:hover{color:#fff}
+.f-bot{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.f-bot p{font-size:.78rem;color:rgba(255,255,255,.25)}
+.f-leg{display:flex;gap:18px}
+.f-leg a{font-size:.78rem;color:rgba(255,255,255,.25);transition:color .2s}
+.f-leg a:hover{color:rgba(255,255,255,.65)}
+.f-disc{font-size:.7rem;color:rgba(255,255,255,.2);text-align:center;margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.05)}
+
+/* ═══════════════════ DEMO TOAST & MODAL ═══════════════════ */
+/* Toast */
+#demoToast{
+  position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--navy);color:#fff;padding:14px 28px;border-radius:50px;
+  font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;
+  box-shadow:var(--shadow-lg);z-index:99999;
+  opacity:0;pointer-events:none;transition:all .35s cubic-bezier(.34,1.56,.64,1);
+  display:flex;align-items:center;gap:10px;white-space:nowrap;
+}
+#demoToast.show{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
+#demoToast i{font-size:1.1rem}
+#demoToast.green{background:var(--teal)}
+#demoToast.gold{background:var(--gold)}
+
+/* Modal overlay */
+#demoModal{
+  position:fixed;inset:0;z-index:99998;display:flex;align-items:center;justify-content:center;
+  background:rgba(7,28,46,.6);backdrop-filter:blur(6px);
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+#demoModal.show{opacity:1;pointer-events:auto}
+.dm-box{
+  background:#fff;border-radius:24px;padding:40px;max-width:440px;width:90%;
+  box-shadow:var(--shadow-lg);transform:scale(.94);transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+  text-align:center;position:relative;
+}
+#demoModal.show .dm-box{transform:scale(1)}
+.dm-icon{width:72px;height:72px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 20px}
+.dm-icon.navy{background:var(--navy-lt);color:var(--navy)}
+.dm-icon.teal{background:var(--teal-lt);color:var(--teal)}
+.dm-icon.gold{background:var(--gold-lt);color:var(--gold)}
+.dm-icon.green{background:#e8f5e9;color:#2e7d32}
+.dm-box h3{font-family:'DM Sans',sans-serif;font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:8px}
+.dm-box p{font-size:.9rem;color:var(--g400);line-height:1.75;margin-bottom:22px}
+.dm-box .dm-detail{background:var(--cream);border-radius:12px;padding:16px 20px;font-size:.88rem;color:var(--g600);margin-bottom:22px;text-align:left;line-height:1.8}
+.dm-box .dm-detail strong{color:var(--navy)}
+.dm-close{position:absolute;top:16px;right:16px;background:var(--g100);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;color:var(--g600);font-size:.85rem;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.dm-close:hover{background:var(--g200)}
+.dm-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+/* ═══════════════════ WHATSAPP ═══════════════════ */
+.wa{position:fixed;bottom:26px;right:26px;z-index:9999;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;box-shadow:0 6px 24px rgba(37,211,102,.45);transition:all .3s;animation:pulse 2.5s infinite}
+.wa:hover{transform:scale(1.1)}
+@keyframes pulse{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.45)}50%{box-shadow:0 6px 40px rgba(37,211,102,.75)}}
+
+/* ═══════════════════ RESPONSIVE ═══════════════════ */
+@media(max-width:1024px){
+  .tgrid{grid-template-columns:repeat(2,1fr)}
+  .sgrid{grid-template-columns:repeat(2,1fr)}
+  .f-grid{grid-template-columns:1fr 1fr}
+  .ben-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:block}
+  .hero-grid{grid-template-columns:1fr;gap:40px;padding:48px 0}
+  .hero-card{display:none}
+  .pgrid,.why-grid,.abt-grid,.con-grid,.book-grid,.pos-grid,.faq-grid,.cand-grid,.candidate-filters{grid-template-columns:1fr}
+  .pcard.feat{transform:scale(1)}
+  .sgrid{grid-template-columns:1fr 1fr}
+  .blog-grid{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr}
+  .fg-row{grid-template-columns:1fr}
+  .svcs-hdr{flex-direction:column;align-items:flex-start}
+  .cstrip-in{gap:16px}
+  .hero-btns,.cta-btns,.rev-btns{flex-direction:column;align-items:stretch}
+  .rev-box{padding:40px 24px}
+  .portal-signin-box{padding:40px 24px}
+  .abt-float{display:none}
+}
+@media(max-width:480px){
+  .tgrid,.sgrid,.ben-grid{grid-template-columns:1fr}
+  .hero-stats{flex-wrap:wrap;gap:20px}
+}
+</style>
 </head>
-
 <body>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <h1>Doctor-Led Senior Support Services in Sudbury</h1>
-      <p>Helping seniors stay safe, supported, and independent at home while giving families peace of mind.</p>
-      <a class="btn btn-primary" href="#book">Book Free Consultation</a>
-      <a class="btn btn-secondary" href="tel:7055551234">Call Now</a>
-    </div>
-  </header>
-
-  <!-- CONTACT STRIP -->
-  <div class="contact-strip">
-    <span id="phone-contact">📞 (705) 555‑1234</span> &nbsp; | &nbsp; <span>✉️ info@wecaresudbury.ca</span> &nbsp; | &nbsp; Serving Greater Sudbury
+<!-- ══════════════ DEMO MODAL ══════════════ -->
+<div id="demoModal" onclick="if(event.target===this)closeDM()">
+  <div class="dm-box">
+    <button class="dm-close" onclick="closeDM()"><i class="fas fa-times"></i></button>
+    <div class="dm-icon navy" id="dmIcon"><i class="fas fa-info-circle" id="dmIconI"></i></div>
+    <h3 id="dmTitle">Demo</h3>
+    <p id="dmDesc"></p>
+    <div class="dm-detail" id="dmDetail" style="display:none"></div>
+    <div class="dm-btns" id="dmBtns"></div>
   </div>
+</div>
 
-  <!-- TRUST SECTION -->
-  <section id="why-trust">
-    <h2 class="section-title">Why Families Trust Us</h2>
-    <div class="container icon-grid">
-      <div class="icon-card">
-        <span class="icon" role="img" aria-label="Stethoscope">🩺</span>
-        <h3>Doctor-Led Oversight</h3>
-      </div>
-      <div class="icon-card">
-        <span class="icon" role="img" aria-label="Handshake">🤝</span>
-        <h3>Compassionate Caregivers</h3>
-      </div>
-      <div class="icon-card">
-        <span class="icon" role="img" aria-label="Smartphone">📱</span>
-        <h3>Family Communication</h3>
-      </div>
-      <div class="icon-card">
-        <span class="icon" role="img" aria-label="Calendar">📅</span>
-        <h3>Flexible Care Plans</h3>
-      </div>
-      <div class="icon-card">
-        <span class="icon" role="img" aria-label="Magnifying Glass">🔍</span>
-        <h3>Background-Checked Staff</h3>
-      </div>
+<!-- Toast -->
+<div id="demoToast"><i class="fas fa-check-circle" id="toastIcon"></i><span id="toastMsg"></span></div>
+
+<!-- ══════════════ NAV ══════════════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="logo">
+      <div class="logo-mark"><i class="fas fa-heart-pulse"></i></div>
+      <div class="logo-text">We Care <span>Sudbury</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#why">Why Us</a>
+      <a href="#careers">Careers</a>
+      <a href="#employer">Employers</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
     </div>
-  </section>
+    <a href="#book" class="btn btn-navy nav-cta" style="flex-shrink:0"><i class="fas fa-calendar-check"></i> Book Free Consult</a>
+    <button class="hamburger" id="hamBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <h2 class="section-title">Personalized Support for Every Need</h2>
-    <div class="container icon-grid">
-      <div class="icon-card"><h3>Wellness Visits</h3></div>
-      <div class="icon-card"><h3>Medication Reminders</h3></div>
-      <div class="icon-card"><h3>Companionship</h3></div>
-      <div class="icon-card"><h3>Transportation</h3></div>
-      <div class="icon-card"><h3>Appointment Support</h3></div>
-      <div class="icon-card"><h3>Respite Care</h3></div>
-    </div>
-  </section>
+<div class="mob" id="mobMenu">
+  <a href="#about" onclick="closeMob()">About Us</a>
+  <a href="#services" onclick="closeMob()">Services</a>
+  <a href="#pricing" onclick="closeMob()">Pricing</a>
+  <a href="#why" onclick="closeMob()">Why Choose Us</a>
+  <a href="#careers" onclick="closeMob()">Careers</a>
+  <a href="#employer" onclick="closeMob()">Employer Portal</a>
+  <a href="#reviews" onclick="closeMob()">Reviews</a>
+  <a href="#faq" onclick="closeMob()">FAQ</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="#book" class="btn btn-navy" onclick="closeMob()"><i class="fas fa-calendar-check"></i> Book Free Consultation</a>
+  <a href="#" class="btn btn-gold" onclick="closeMob();demoCall();return false;" style="margin-top:10px"><i class="fas fa-phone"></i> Call Us Now</a>
+</div>
 
-  <!-- WHY CHOOSE US -->
-  <section class="bg-light">
-    <h2 class="section-title">What Makes We Care Sudbury Different</h2>
-    <div class="container" style="max-width:700px;">
-      <ul style="line-height:1.9; font-size:18px;">
-        <li>Physician-led approach</li>
-        <li>Personalized care plans</li>
-        <li>Reliable communication and updates</li>
-        <li>Flexible scheduling</li>
-        <li>Affordable monthly plans</li>
-        <li>Compassionate, trained caregivers</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section id="testimonials">
-    <h2 class="section-title">Families Who Trust Our Care</h2>
-    <div class="container">
-      <blockquote class="testimonial">
-        “We Care Sudbury gave me peace of mind knowing someone was checking on my mother while I lived out of town.” — Janet M.
-      </blockquote>
-      <blockquote class="testimonial">
-        “Their doctor involvement and regular updates make all the difference.” — Robert S.
-      </blockquote>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta" id="book">
-    <h2>Ready to Talk About Home Support?</h2>
-    <a class="btn btn-primary" href="#book">Book Free Consultation</a>
-    <a class="btn btn-secondary" href="tel:7055551234">Call (705) 555‑1234</a>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2026 We Care Sudbury — Senior Home Support Services</p>
-  </footer>
-
-</body>
-</html>
-      font-size: 42px;
-      line-height: 1.2;
-      margin-bottom: 15px;
-    }
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 30px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 14px 25px;
-      border-radius: 6px;
-      font-weight: 600;
-      margin-right: 10px;
-    }
-    .btn-primary {
-      background: #1b72c3;
-      color: #fff;
-    }
-    .btn-secondary {
-      background: #44a574;
-      color: #fff;
-    }
-
-    /* Contact Strip */
-    .contact-strip {
-      background: #f7f7f7;
-      padding: 12px;
-      text-align: center;
-      font-size: 15px;
-      color: #555;
-    }
-
-    /* Section */
-    section {
-      padding: 60px 20px;
-    }
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    /* Icon grid */
-    .icon-grid {
-      display: grid;
-      gap: 25px;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    }
-    .icon-card {
-      padding: 25px;
-      background: #f8f9fb;
-      border-radius: 8px;
-      text-align: center;
-    }
-    .icon-card img {
-      width: 45px;
-      margin-bottom: 10px;
-    }
-
-    /* Testimonials */
-    .testimonial {
-      background: #f3f7fc;
-      padding: 25px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      font-style: italic;
-    }
-
-    /* CTA */
-    .cta {
-      background: #eaf3fb;
-      text-align: center;
-      padding: 50px 20px;
-    }
-
-    /* Footer */
-    footer {
-      background: #003c78;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    @media(max-width: 600px) {
-      .hero h1 { font-size: 30px; }
-      .hero p { font-size: 18px; }
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <h1>Doctor-Led Senior Support Services in Sudbury</h1>
-      <p>Helping seniors stay safe, supported, and independent at home while giving families peace of mind.</p>
-      <a class="btn btn-primary" href="#book">Book Free Consultation</a>
-      <a class="btn btn-secondary" href="tel:7055551234">Call Now</a>
+<!-- ══════════════ HERO ══════════════ -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-txt fu">
+        <div class="hero-badge"><i class="fas fa-user-doctor"></i> Doctor-Led Senior Care · Greater Sudbury</div>
+        <h1>Trusted Home Support<br>for <em>Seniors</em> in Sudbury</h1>
+        <p>Helping seniors stay safe, supported, and independent at home — while giving families the peace of mind they deserve.</p>
+        <div class="hero-btns">
+          <a href="#book" class="btn btn-teal"><i class="fas fa-calendar-check"></i> Book Free Consultation</a>
+          <div class="hero-divider"></div>
+          <a href="#" class="btn btn-outline-white" onclick="demoCall();return false;"><i class="fas fa-phone"></i> Call Us Now</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><strong>100%</strong><span>Vetted Staff</span></div>
+          <div class="hero-stat"><strong>3</strong><span>Care Plans</span></div>
+          <div class="hero-stat"><strong>Local</strong><span>Sudbury-Based</span></div>
+        </div>
+      </div>
+      <div class="hero-card fu" style="transition-delay:.12s">
+        <div class="hero-card-icon"><i class="fas fa-house-medical"></i></div>
+        <h3>What We Offer</h3>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> Home wellness visits</li>
+          <li><i class="fas fa-check-circle"></i> Medication reminders</li>
+          <li><i class="fas fa-check-circle"></i> Companionship &amp; social support</li>
+          <li><i class="fas fa-check-circle"></i> Weekly family updates</li>
+          <li><i class="fas fa-check-circle"></i> Appointment assistance</li>
+          <li><i class="fas fa-check-circle"></i> Respite care for families</li>
+        </ul>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- CONTACT STRIP -->
-  <div class="contact-strip">
-    📞 (705) 555‑1234 &nbsp; | &nbsp; ✉️ info@wecaresudbury.ca &nbsp; | &nbsp; Serving Greater Sudbury
+<!-- Contact Strip -->
+<div class="cstrip">
+  <div class="cstrip-in container">
+    <a href="#" onclick="demoCall();return false;"><i class="fas fa-phone"></i> (705) 855-0000</a>
+    <a href="#" onclick="demoEmail();return false;"><i class="fas fa-envelope"></i> info@wecaresudbury.ca</a>
+    <a href="https://wa.me/17058550000" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="#contact"><i class="fas fa-map-marker-alt"></i> Greater Sudbury &amp; Area</a>
   </div>
+</div>
 
-  <!-- TRUST SECTION -->
-  <section>
-    <h2 class="section-title">Why Families Trust Us</h2>
-    <div class="container icon-grid">
-      <div class="icon-card">🩺<h3>Doctor-Led Oversight</h3></div>
-      <div class="icon-card">🤝<h3>Compassionate Caregivers</h3></div>
-      <div class="icon-card">📱<h3>Family Communication</h3></div>
-      <div class="icon-card">📅<h3>Flexible Care Plans</h3></div>
-      <div class="icon-card">🔍<h3>Background-Checked Staff</h3></div>
+<!-- ══════════════ TRUST ══════════════ -->
+<section id="trust">
+  <div class="container">
+    <div class="trust-header fu">
+      <span class="lbl">Why Families Trust Us</span>
+      <h2 class="stitle">Care You Can Count On</h2>
+      <p class="ssub">Doctor-led oversight and compassionate caregivers — every visit, every update, every time.</p>
     </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section>
-    <h2 class="section-title">Personalized Support for Every Need</h2>
-    <div class="container icon-grid">
-      <div class="icon-card"><h3>Wellness Visits</h3></div>
-      <div class="icon-card"><h3>Medication Reminders</h3></div>
-      <div class="icon-card"><h3>Companionship</h3></div>
-      <div class="icon-card"><h3>Transportation</h3></div>
-      <div class="icon-card"><h3>Appointment Support</h3></div>
-      <div class="icon-card"><h3>Respite Care</h3></div>
+    <div class="tgrid">
+      <div class="tcard fu"><div class="tico navy"><i class="fas fa-user-doctor"></i></div><h4>Doctor-Led</h4><p>Physician oversight on every care plan.</p></div>
+      <div class="tcard fu"><div class="tico teal"><i class="fas fa-heart"></i></div><h4>Compassionate Staff</h4><p>Warm, patient caregivers who truly care.</p></div>
+      <div class="tcard fu"><div class="tico navy"><i class="fas fa-bell"></i></div><h4>Family Updates</h4><p>Regular reports so you're always informed.</p></div>
+      <div class="tcard fu"><div class="tico teal"><i class="fas fa-shield-halved"></i></div><h4>Background Checked</h4><p>Full vulnerable sector screening on all staff.</p></div>
+      <div class="tcard fu"><div class="tico gold"><i class="fas fa-house-medical-circle-check"></i></div><h4>Home Safety</h4><p>We assess and monitor the home environment.</p></div>
+      <div class="tcard fu"><div class="tico navy"><i class="fas fa-calendar-days"></i></div><h4>Flexible Plans</h4><p>Basic check-ins to daily full-service visits.</p></div>
+      <div class="tcard fu"><div class="tico teal"><i class="fas fa-pills"></i></div><h4>Med Reminders</h4><p>No missed doses — we keep seniors on track.</p></div>
+      <div class="tcard fu"><div class="tico gold"><i class="fas fa-car"></i></div><h4>Transportation</h4><p>Ride coordination for appointments &amp; errands.</p></div>
     </div>
-    <div style="text-align:center; margin-top:40px;">
-      <a class="btn btn-primary" href="#services">View All Services</a>
-    </div>
-  </section>
-
-  <!-- WHY CHOOSE US -->
-  <section style="background:#f7fafc;">
-    <h2 class="section-title">What Makes We Care Sudbury Different</h2>
-    <div class="container" style="max-width:700px;">
-      <ul style="line-height:1.9; font-size:18px;">
-        <li>Physician-led approach</li>
-        <li>Personalized care plans</li>
-        <li>Reliable communication and updates</li>
-        <li>Flexible scheduling</li>
-        <li>Affordable monthly plans</li>
-        <li>Compassionate, trained caregivers</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section>
-    <h2 class="section-title">Families Who Trust Our Care</h2>
-    <div class="container">
-      <div class="testimonial">
-        “We Care Sudbury gave me peace of mind knowing someone was checking on my mother while I lived out of town.” — Janet M.
-      </div>
-      <div class="testimonial">
-        “Their doctor involvement and regular updates make all the difference.” — Robert S.
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <div class="cta" id="book">
-    <h2>Ready to Talk About Home Support?</h2>
-    <a class="btn btn-primary" href="#">Book Free Consultation</a>
-    <a class="btn btn-secondary" href="tel:7055551234">Call (705) 555‑1234</a>
   </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    © We Care Sudbury — Senior Home Support Services  
-  </footer>
+<!-- ══════════════ SERVICES ══════════════ -->
+<section id="services">
+  <div class="container">
+    <div class="svcs-hdr fu">
+      <div>
+        <span class="lbl">Our Services</span>
+        <h2 class="stitle">Senior Support Services</h2>
+        <p class="ssub">Non-medical, compassionate care to keep your loved one safe at home.</p>
+      </div>
+      <a href="#book" class="btn btn-navy"><i class="fas fa-calendar-check"></i> Book Consultation</a>
+    </div>
+    <div class="sgrid">
+      <div class="scard fu"><div class="sico"><i class="fas fa-house-medical-circle-check"></i></div><h3>Wellness Check-ins</h3><p>Regular visits to monitor safety, well-being, and daily functioning at home.</p></div>
+      <div class="scard fu"><div class="sico"><i class="fas fa-comments"></i></div><h3>Companionship</h3><p>Friendly visits and conversation to reduce isolation and improve mental health.</p></div>
+      <div class="scard fu"><div class="sico"><i class="fas fa-pills"></i></div><h3>Medication Reminders</h3><p>On-schedule reminders and dose tracking — no missed medications.</p></div>
+      <div class="scard fu"><div class="sico"><i class="fas fa-people-roof"></i></div><h3>Family Reports</h3><p>Clear, regular updates so families always know how their loved one is doing.</p></div>
+      <div class="scard fu"><div class="sico"><i class="fas fa-car-side"></i></div><h3>Appointment Help</h3><p>Scheduling, coordination, and transportation to medical and other appointments.</p></div>
+      <div class="scard fu"><div class="sico"><i class="fas fa-hands-holding-heart"></i></div><h3>Respite Care</h3><p>Short-term relief for family caregivers — flexible, reliable coverage.</p></div>
+      <div class="scard fu"><div class="sico"><i class="fas fa-bowl-food"></i></div><h3>Meal Assistance</h3><p>Light meal prep and hydration reminders to support daily nutrition.</p></div>
+      <div class="scard fu"><div class="sico"><i class="fas fa-person-walking"></i></div><h3>Mobility Support</h3><p>Safe movement assistance and fall-risk reduction inside the home.</p></div>
+    </div>
+    <div class="disc fu">
+      <i class="fas fa-triangle-exclamation fa-lg"></i>
+      <p><strong>Disclaimer:</strong> We Care Sudbury provides non-medical support only. We do not diagnose, treat, or prescribe. For emergencies, call 911.</p>
+    </div>
+  </div>
+</section>
 
+<!-- ══════════════ PRICING ══════════════ -->
+<section id="pricing">
+  <div class="container">
+    <div class="text-center fu">
+      <span class="lbl">Transparent Pricing</span>
+      <h2 class="stitle">Simple Monthly Plans</h2>
+      <p class="ssub">No hidden fees. Free initial consultation included with every plan.</p>
+    </div>
+    <div class="pgrid">
+      <div class="pcard fu">
+        <div class="p-name">Basic</div>
+        <div class="p-price"><sup>$</sup>199</div>
+        <div class="p-mo">per month</div>
+        <ul class="p-feats">
+          <li><i class="fas fa-check"></i> 2 home visits per month</li>
+          <li><i class="fas fa-check"></i> Phone check-in calls</li>
+          <li><i class="fas fa-check"></i> Monthly family update</li>
+          <li><i class="fas fa-check"></i> Wellness observations</li>
+          <li><i class="fas fa-check"></i> Emergency contact on file</li>
+        </ul>
+        <a href="#" class="btn btn-outline" onclick="demoPlan('Basic','$199/mo','2 home visits, phone check-ins, monthly family update');return false;"><i class="fas fa-calendar-check"></i> Get Started</a>
+      </div>
+      <div class="pcard feat fu">
+        <div class="pop-badge">⭐ Most Popular</div>
+        <div class="p-name">Standard</div>
+        <div class="p-price"><sup>$</sup>349</div>
+        <div class="p-mo">per month</div>
+        <ul class="p-feats">
+          <li><i class="fas fa-check"></i> Weekly home visits</li>
+          <li><i class="fas fa-check"></i> Wellness monitoring</li>
+          <li><i class="fas fa-check"></i> Weekly family updates</li>
+          <li><i class="fas fa-check"></i> Medication reminders</li>
+          <li><i class="fas fa-check"></i> Appointment coordination</li>
+          <li><i class="fas fa-check"></i> Companionship visits</li>
+        </ul>
+        <a href="#" class="btn btn-teal" onclick="demoPlan('Standard','$349/mo','Weekly visits, wellness monitoring, medication reminders, family updates');return false;"><i class="fas fa-calendar-check"></i> Get Started</a>
+      </div>
+      <div class="pcard fu">
+        <div class="p-name">Premium</div>
+        <div class="p-price"><sup>$</sup>599</div>
+        <div class="p-mo">per month</div>
+        <ul class="p-feats">
+          <li><i class="fas fa-check"></i> Multiple visits per week</li>
+          <li><i class="fas fa-check"></i> Priority support access</li>
+          <li><i class="fas fa-check"></i> Detailed family reporting</li>
+          <li><i class="fas fa-check"></i> Full services suite</li>
+          <li><i class="fas fa-check"></i> Respite care included</li>
+          <li><i class="fas fa-check"></i> Dedicated care coordinator</li>
+        </ul>
+        <a href="#" class="btn btn-gold" onclick="demoPlan('Premium','$599/mo','Multiple weekly visits, full services suite, respite care, dedicated coordinator');return false;"><i class="fas fa-calendar-check"></i> Get Started</a>
+      </div>
+    </div>
+    <p class="pricing-note fu">Questions? Call <a href="#" onclick="demoCall();return false;">(705) 855-0000</a> or <a href="#contact">send a message</a></p>
+  </div>
+</section>
+
+<!-- ══════════════ WHY US ══════════════ -->
+<section id="why">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-vis fu">
+        <div class="why-vis-icon"><i class="fas fa-user-doctor"></i></div>
+        <h3>Physician-Founded, Sudbury-Based</h3>
+        <p>Started by an internationally trained doctor who saw the gap in local senior support — and built something better for our community.</p>
+        <div class="why-pts">
+          <div class="wpt"><div class="wpi"><i class="fas fa-star"></i></div><div><h4>Medical Expertise</h4><p>Doctor reviews every care approach for safety.</p></div></div>
+          <div class="wpt"><div class="wpi"><i class="fas fa-map-marker-alt"></i></div><div><h4>Local Team</h4><p>Your caregivers are your Sudbury neighbours.</p></div></div>
+        </div>
+      </div>
+      <div class="fu" style="transition-delay:.1s">
+        <span class="lbl">Why Choose We Care Sudbury</span>
+        <h2 class="stitle">What Sets Us Apart</h2>
+        <p class="ssub">Families choose us because we deliver on every promise — from the first call to every visit.</p>
+        <div class="why-list">
+          <div class="wlt"><div class="wlt-ico teal"><i class="fas fa-heart"></i></div><div><h4>Personalized Plans</h4><p>Tailored to your loved one's exact needs and schedule.</p></div></div>
+          <div class="wlt"><div class="wlt-ico navy"><i class="fas fa-phone-volume"></i></div><div><h4>Reliable Communication</h4><p>Regular updates and prompt responses — always.</p></div></div>
+          <div class="wlt"><div class="wlt-ico teal"><i class="fas fa-clock"></i></div><div><h4>Flexible Scheduling</h4><p>Morning, afternoon, or custom visit frequencies.</p></div></div>
+          <div class="wlt"><div class="wlt-ico navy"><i class="fas fa-dollar-sign"></i></div><div><h4>Affordable Plans</h4><p>Professional care accessible to Sudbury families.</p></div></div>
+        </div>
+        <a href="#book" class="btn btn-navy" style="margin-top:28px"><i class="fas fa-calendar-check"></i> Book Free Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="abt-grid">
+      <div class="abt-visual fu">
+        <div class="abt-vis-main">
+          <i class="fas fa-user-doctor"></i>
+          <h3>Founded by a Physician</h3>
+          <p>An internationally trained doctor saw a gap in senior support in Sudbury — and built We Care Sudbury to fill it with compassion and professionalism.</p>
+        </div>
+        <div class="abt-float">
+          <div class="abt-float-ico"><i class="fas fa-shield-heart"></i></div>
+          <div><strong>100%</strong><span>Background Checked Staff</span></div>
+        </div>
+      </div>
+      <div class="fu" style="transition-delay:.1s">
+        <span class="lbl">Our Story</span>
+        <h2 class="stitle">About We Care Sudbury</h2>
+        <p style="color:var(--g400);line-height:1.9;margin-bottom:16px;font-size:.95rem">We're a doctor-led, community-focused senior support service in Greater Sudbury. Families come to us when they need more than occasional help — they need genuine peace of mind.</p>
+        <p style="color:var(--g400);line-height:1.9;margin-bottom:24px;font-size:.95rem">Every care plan is grounded in medical thinking, delivered by compassionate, background-checked caregivers, and supported by regular communication with families.</p>
+        <div class="mbox navy">
+          <h4>Our Mission</h4>
+          <p>To improve the quality of life of seniors through compassionate, dependable, and respectful home support.</p>
+        </div>
+        <div class="mbox teal">
+          <h4>Our Vision</h4>
+          <p>To become Sudbury's most trusted senior support service — one family at a time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ REVIEWS ══════════════ -->
+<section id="reviews">
+  <div class="container">
+    <div class="text-center fu" style="margin-bottom:52px">
+      <span class="lbl">Client Reviews</span>
+      <h2 class="stitle">What Families Are Saying</h2>
+    </div>
+    <div class="rev-box fu">
+      <div class="g-logo">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+          <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+          <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+          <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+        </svg>
+      </div>
+      <div class="rev-stars">★★★★★</div>
+      <div class="gbadge">
+        <svg width="16" height="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+        Verified Google Reviews
+      </div>
+      <h3>We'd Love to Hear From You</h3>
+      <p>We're a growing business right here in Sudbury. If you or a family member has experienced our care, please share your feedback — it helps other local families find trusted support.</p>
+      <div class="rev-btns">
+        <!-- ⚠️ REPLACE with your real Google Place ID -->
+        <a href="#" onclick="demoReview();return false;" class="btn btn-white"><i class="fab fa-google"></i> Leave a Google Review</a>
+        <a href="#contact" class="btn btn-outline-white"><i class="fas fa-envelope"></i> Share Feedback Directly</a>
+      </div>
+      <p class="rev-note">Already left a review? Thank you — it means the world to us and to the families we serve.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FAQ ══════════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="text-center fu" style="margin-bottom:0">
+      <span class="lbl">Common Questions</span>
+      <h2 class="stitle">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="fi fu" onclick="toggleFaq(this)"><div class="fi-q"><h4>Is We Care Sudbury a medical service?</h4><i class="fas fa-plus"></i></div><div class="fi-a">No. We provide non-medical home support only. We do not diagnose, treat, or prescribe. Our services complement — but never replace — licensed medical care.</div></div>
+      <div class="fi fu" onclick="toggleFaq(this)"><div class="fi-q"><h4>Do you provide emergency care?</h4><i class="fas fa-plus"></i></div><div class="fi-a">No. For any emergency call 911 immediately. Our caregivers are trained to recognize and report concerns, but we are not an emergency service.</div></div>
+      <div class="fi fu" onclick="toggleFaq(this)"><div class="fi-q"><h4>Are caregivers background checked?</h4><i class="fas fa-plus"></i></div><div class="fi-a">Yes. Every caregiver completes a vulnerable sector police check before working with any client. Safety is our top priority.</div></div>
+      <div class="fi fu" onclick="toggleFaq(this)"><div class="fi-q"><h4>Can families receive regular updates?</h4><i class="fas fa-plus"></i></div><div class="fi-a">Absolutely. All plans include family updates — weekly on Standard/Premium and monthly on Basic. We contact you immediately if any concern arises.</div></div>
+      <div class="fi fu" onclick="toggleFaq(this)"><div class="fi-q"><h4>Do you provide overnight care?</h4><i class="fas fa-plus"></i></div><div class="fi-a">Overnight care may be available depending on staffing. Contact us to discuss your specific needs and we'll find the right solution.</div></div>
+      <div class="fi fu" onclick="toggleFaq(this)"><div class="fi-q"><h4>What areas do you serve?</h4><i class="fas fa-plus"></i></div><div class="fi-a">We serve Greater Sudbury and surrounding areas. Contact us if you're unsure — we are actively expanding our coverage.</div></div>
+      <div class="fi fu" onclick="toggleFaq(this)"><div class="fi-q"><h4>How do I get started?</h4><i class="fas fa-plus"></i></div><div class="fi-a">Book a free consultation through this website or call us. We'll discuss your loved one's needs and recommend the right plan — no obligation.</div></div>
+      <div class="fi fu" onclick="toggleFaq(this)"><div class="fi-q"><h4>Can I change or cancel my plan?</h4><i class="fas fa-plus"></i></div><div class="fi-a">Yes. Contact us to adjust or cancel. We always work with you to find the best solution as needs change.</div></div>
+    </div>
+    <div style="text-align:center;margin-top:36px" class="fu">
+      <p style="color:var(--g400);margin-bottom:16px;font-size:.9rem">Still have questions?</p>
+      <a href="#" class="btn btn-navy" onclick="demoCall();return false;"><i class="fas fa-phone"></i> Call (705) 855-0000</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CAREERS ══════════════ -->
+<section id="careers">
+  <div class="container">
+    <div class="text-center fu" style="margin-bottom:52px">
+      <span class="lbl">Join Our Team</span>
+      <h2 class="stitle">Join the We Care Sudbury Team</h2>
+      <p class="ssub">Compassionate individuals who love helping seniors live safely at home.</p>
+    </div>
+    <div class="pos-grid">
+      <div class="pos-card fu">
+        <div class="pos-ico"><i class="fas fa-user-nurse"></i></div>
+        <h3>Personal Support Worker (PSW)</h3>
+        <h5>Responsibilities</h5>
+        <ul><li>Home visits &amp; wellness check-ins</li><li>Companionship &amp; daily assistance</li><li>Medication reminders</li><li>Family communication &amp; reporting</li></ul>
+        <h5>Requirements</h5>
+        <ul><li>PSW certificate preferred</li><li>Compassionate attitude</li><li>Reliable transportation</li><li>Vulnerable sector police check</li></ul>
+        <a href="#apply" class="btn btn-navy" style="margin-top:22px"><i class="fas fa-paper-plane"></i> Apply Now</a>
+      </div>
+      <div class="pos-card fu" style="transition-delay:.08s">
+        <div class="pos-ico"><i class="fas fa-stethoscope"></i></div>
+        <h3>RPN / RN / Caregiver</h3>
+        <h5>Responsibilities</h5>
+        <ul><li>Social interaction &amp; wellness support</li><li>Medication oversight &amp; reminders</li><li>Reporting to care coordinator</li><li>Light daily task assistance</li></ul>
+        <h5>Requirements</h5>
+        <ul><li>RPN/RN license or caregiver experience</li><li>Warm &amp; empathetic personality</li><li>Reliable &amp; punctual</li><li>Vulnerable sector police check</li></ul>
+        <a href="#apply" class="btn btn-teal" style="margin-top:22px"><i class="fas fa-paper-plane"></i> Apply Now</a>
+      </div>
+    </div>
+    <h3 style="text-align:center;font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:22px;color:var(--navy)" class="fu">Why Work With Us</h3>
+    <div class="ben-grid">
+      <div class="ben-card fu"><i class="fas fa-clock"></i><h4>Flexible Hours</h4><p>Part-time &amp; full-time options available.</p></div>
+      <div class="ben-card fu"><i class="fas fa-handshake"></i><h4>Supportive Team</h4><p>A team culture built on respect.</p></div>
+      <div class="ben-card fu"><i class="fas fa-arrow-trend-up"></i><h4>Growth</h4><p>Training &amp; advancement opportunities.</p></div>
+      <div class="ben-card fu"><i class="fas fa-heart"></i><h4>Meaningful Work</h4><p>Make a difference in seniors' lives daily.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ APPLY FORM ══════════════ -->
+<section id="apply">
+  <div class="container-sm">
+    <div class="fcard fu">
+      <span class="lbl">Careers</span>
+      <h3>Create Your Job Seeker Profile</h3>
+      <p class="form-intro">Your profile is confidential and visible only to We Care Sudbury's recruiting team and verified partner employers.</p>
+      <div class="fg-row">
+        <div class="fg"><label>Full Name *</label><input type="text" id="a-name" placeholder="Jane Smith"/></div>
+        <div class="fg"><label>Phone *</label><input type="tel" id="a-phone" placeholder="(705) 000-0000"/></div>
+      </div>
+      <div class="fg"><label>Email Address *</label><input type="email" id="a-email" placeholder="your@email.com"/></div>
+      <div class="fg-row">
+        <div class="fg">
+          <label>Role Applying For *</label>
+          <select id="a-role">
+            <option value="">Select role...</option>
+            <option>Personal Support Worker (PSW)</option>
+            <option>Registered Practical Nurse (RPN)</option>
+            <option>Registered Nurse (RN)</option>
+            <option>Caregiver / Companion Aide</option>
+            <option>Other Support Role</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Availability</label>
+          <select id="a-avail">
+            <option>Full-time</option><option>Part-time</option><option>Weekends Only</option><option>Flexible</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg">
+        <label>Years of Experience *</label>
+        <select id="a-exp">
+          <option>0–1 years</option><option>1–3 years</option><option>3–5 years</option><option>5+ years</option>
+        </select>
+      </div>
+      <div class="fg"><label>Resume / Portfolio Link (Google Drive, LinkedIn, etc.)</label><input type="url" id="a-resume" placeholder="https://drive.google.com/..."/></div>
+      <div class="fg"><label>Additional Notes</label><textarea id="a-notes" placeholder="Tell us about yourself, certifications, languages spoken, etc."></textarea></div>
+      <div class="check-row">
+        <input type="checkbox" id="a-consent"/>
+        <label for="a-consent">I consent to We Care Sudbury storing my application and sharing a limited profile with verified employer partners for recruitment purposes. My direct contact information will not be publicly displayed.</label>
+      </div>
+      <button class="btn btn-navy fsub" onclick="submitApply()"><i class="fas fa-paper-plane"></i> Submit My Profile</button>
+      <div class="smsg" id="apply-ok">✓ Profile submitted! We'll be in touch within 2 business days.</div>
+      <div class="emsg" id="apply-err">Something went wrong. Please call (705) 855-0000 or email us directly.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ EMPLOYER PORTAL ══════════════ -->
+<section id="employer">
+  <div class="container">
+    <div class="text-center fu" style="margin-bottom:52px">
+      <span class="lbl">Employer Portal</span>
+      <h2 class="stitle">Job Seeker Directory</h2>
+      <p class="ssub">Verified employers can browse candidate profiles. Sign in with your approved Google account.</p>
+    </div>
+    <div class="portal-wrap">
+
+      <!-- Sign In -->
+      <div class="portal-signin-box fu" id="portalSignin">
+        <i class="fas fa-lock"></i>
+        <h3>Employer Login Required</h3>
+        <p>This directory is restricted to verified We Care Sudbury partner employers. Sign in with your approved Google account to access candidate profiles.</p>
+        <div class="check-row terms-row">
+          <input type="checkbox" id="employerTermsConsent"/>
+          <label for="employerTermsConsent">I agree that if my organization hires a candidate introduced through We Care Sudbury, a placement/referral fee may apply under employer terms.</label>
+        </div>
+        <!-- ⚠️ REPLACE data-client_id with your real Google OAuth Client ID -->
+        <div id="g_id_onload" data-client_id="288336110507-kh30p00g0ug5ad1qtst7r4uasv4lhr6v.apps.googleusercontent.com" data-callback="handleGoogleSignIn"></div>
+        <button class="btn btn-navy" onclick="demoSignIn()" style="margin:0 auto;display:flex;gap:10px;align-items:center;padding:14px 32px;">
+          <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          Sign in with Google
+        </button>
+        <p style="margin-top:22px;font-size:.78rem;color:var(--g400)">To request employer access, email <a href="mailto:employers@wecaresudbury.ca" style="color:var(--navy);font-weight:600">employers@wecaresudbury.ca</a></p>
+      </div>
+
+      <!-- Denied -->
+      <div class="portal-denied" id="portalDenied">
+        <i class="fas fa-ban"></i>
+        <h3>Access Denied</h3>
+        <p id="deniedEmail"></p>
+        <p style="margin-top:8px">Your account is not on the approved employer list. To request access, email <a href="mailto:employers@wecaresudbury.ca" style="color:var(--navy)">employers@wecaresudbury.ca</a></p>
+        <button onclick="resetPortal()" class="btn btn-outline" style="margin-top:20px">Try Another Account</button>
+      </div>
+
+      <!-- Portal Content -->
+      <div class="portal-content" id="portalContent">
+        <div class="portal-header">
+          <div>
+            <h3>Job Seeker Profiles</h3>
+            <p>Showing active candidates in Greater Sudbury</p>
+          </div>
+          <div class="portal-actions">
+            <div class="portal-user-pill"><i class="fas fa-circle-check"></i> Signed in as <strong id="portalUserName"></strong></div>
+            <button onclick="resetPortal()" class="btn btn-outline btn-sm"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+          </div>
+        </div>
+        <div class="candidate-filters">
+          <div class="fg">
+            <label>Filter by Role</label>
+            <select id="candidateRoleFilter" onchange="filterCandidateCards()">
+              <option value="">All Roles</option>
+              <option value="psw">PSW</option><option value="rpn">RPN</option>
+              <option value="rn">RN</option><option value="caregiver">Caregiver</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Search Candidates</label>
+            <input type="text" id="candidateSearch" placeholder="Search experience, notes, availability..." oninput="filterCandidateCards()"/>
+          </div>
+        </div>
+        <div class="cand-grid" id="candGrid">
+          <!-- Sample profiles -->
+          <div class="cand-card">
+            <div class="cand-top"><div class="cand-av">MT</div><div><div class="cand-name">Maria T. <span class="new-badge">New</span></div><div class="cand-role">Personal Support Worker (PSW)</div></div></div>
+            <div class="cand-tags"><span class="tag">PSW Certified</span><span class="tag teal">3–5 yrs exp</span><span class="tag">Full-time</span></div>
+            <p class="cand-info">Bilingual (English/French). Specializes in dementia care and mobility support. Available immediately.</p>
+            <p class="intro-request">To request an introduction, email <a href="mailto:employers@wecaresudbury.ca?subject=Candidate Intro - Maria T.">employers@wecaresudbury.ca</a></p>
+          </div>
+          <div class="cand-card">
+            <div class="cand-top"><div class="cand-av">JK</div><div><div class="cand-name">James K.</div><div class="cand-role">Registered Practical Nurse (RPN)</div></div></div>
+            <div class="cand-tags"><span class="tag">RPN Licensed</span><span class="tag teal">5+ yrs exp</span><span class="tag">Part-time</span></div>
+            <p class="cand-info">Experienced in senior home care, medication management, and wound care. Flexible evenings.</p>
+            <p class="intro-request">To request an introduction, email <a href="mailto:employers@wecaresudbury.ca?subject=Candidate Intro - James K.">employers@wecaresudbury.ca</a></p>
+          </div>
+          <div class="cand-card">
+            <div class="cand-top"><div class="cand-av">AD</div><div><div class="cand-name">Amina D. <span class="new-badge">New</span></div><div class="cand-role">Caregiver / Companion Aide</div></div></div>
+            <div class="cand-tags"><span class="tag teal">1–3 yrs exp</span><span class="tag">Weekends</span></div>
+            <p class="cand-info">Warm and patient with experience in elderly companionship and light household assistance.</p>
+            <p class="intro-request">To request an introduction, email <a href="mailto:employers@wecaresudbury.ca?subject=Candidate Intro - Amina D.">employers@wecaresudbury.ca</a></p>
+          </div>
+          <div class="cand-card">
+            <div class="cand-top"><div class="cand-av">RL</div><div><div class="cand-name">Robert L.</div><div class="cand-role">Personal Support Worker (PSW)</div></div></div>
+            <div class="cand-tags"><span class="tag">PSW Certified</span><span class="tag teal">1–3 yrs exp</span><span class="tag">Flexible</span></div>
+            <p class="cand-info">Trained in fall prevention, personal hygiene assistance, and client communication. Reliable transportation.</p>
+            <p class="intro-request">To request an introduction, email <a href="mailto:employers@wecaresudbury.ca?subject=Candidate Intro - Robert L.">employers@wecaresudbury.ca</a></p>
+          </div>
+        </div>
+        <p class="portal-note">Contact <a href="mailto:employers@wecaresudbury.ca">employers@wecaresudbury.ca</a> to connect with a candidate. Profiles updated as applications are received.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ BLOG ══════════════ -->
+<section id="blog">
+  <div class="container">
+    <div class="text-center fu">
+      <span class="lbl">Resources</span>
+      <h2 class="stitle">Senior Care Insights</h2>
+    </div>
+    <div class="blog-grid">
+      <div class="bc fu"><div class="bc-img"><i class="fas fa-house-medical"></i></div><div class="bc-body"><span class="bc-tag">Safety</span><h3>Signs Your Elderly Parent Needs More Support</h3><p>Recognizing early warning signs helps families act before a crisis occurs.</p></div></div>
+      <div class="bc fu"><div class="bc-img"><i class="fas fa-users"></i></div><div class="bc-body"><span class="bc-tag">Well-being</span><h3>How to Prevent Senior Isolation &amp; Loneliness</h3><p>Practical steps to keep loved ones connected and emotionally engaged.</p></div></div>
+      <div class="bc fu"><div class="bc-img"><i class="fas fa-people-arrows"></i></div><div class="bc-body"><span class="bc-tag">Family Tips</span><h3>Supporting Aging Parents from a Distance</h3><p>How professional support services bridge the gap when you can't be there.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="text-center fu" style="margin-bottom:52px">
+      <span class="lbl">Get in Touch</span>
+      <h2 class="stitle">We're Here to Help</h2>
+    </div>
+    <div class="con-grid">
+      <div class="con-info fu">
+        <h3>Contact We Care Sudbury</h3>
+        <p>Reach out any time to ask questions, discuss your loved one's needs, or book a free consultation.</p>
+        <ul class="ci-list">
+          <li><div class="ci-ico"><i class="fas fa-phone"></i></div><div><strong>Phone</strong><span><a href="#" onclick="demoCall();return false;">(705) 855-0000</a></span></div></li>
+          <li><div class="ci-ico"><i class="fas fa-envelope"></i></div><div><strong>Email</strong><span><a href="#" onclick="demoEmail();return false;">info@wecaresudbury.ca</a></span></div></li>
+          <li><div class="ci-ico"><i class="fab fa-whatsapp"></i></div><div><strong>WhatsApp</strong><span><a href="https://wa.me/17058550000" target="_blank" rel="noopener">Message us anytime</a></span></div></li>
+          <li><div class="ci-ico"><i class="fas fa-map-marker-alt"></i></div><div><strong>Service Area</strong><span>Greater Sudbury &amp; Surrounding Areas</span></div></li>
+          <li><div class="ci-ico"><i class="fas fa-clock"></i></div><div><strong>Hours</strong><span>Mon–Fri: 8am–6pm &nbsp;|&nbsp; Weekends: By arrangement</span></div></li>
+        </ul>
+      </div>
+      <div class="fcard fu" style="transition-delay:.1s">
+        <h3>Send Us a Message</h3>
+        <div class="fg-row">
+          <div class="fg"><label>First Name *</label><input type="text" id="c-fname" placeholder="Jane"/></div>
+          <div class="fg"><label>Last Name</label><input type="text" id="c-lname" placeholder="Smith"/></div>
+        </div>
+        <div class="fg"><label>Phone</label><input type="tel" id="c-phone" placeholder="(705) 000-0000"/></div>
+        <div class="fg"><label>Email *</label><input type="email" id="c-email" placeholder="jane@email.com"/></div>
+        <div class="fg"><label>Message</label><textarea id="c-msg" placeholder="Tell us how we can help..."></textarea></div>
+        <button class="btn btn-navy fsub" onclick="submitContact()"><i class="fas fa-paper-plane"></i> Send Message</button>
+        <div class="smsg" id="con-ok">✓ Message received! We'll reply within 1 business day.</div>
+        <div class="emsg" id="con-err">Something went wrong. Please call or email us directly.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ BOOK ══════════════ -->
+<section id="book">
+  <div class="container">
+    <div class="book-grid">
+      <div class="book-info fu">
+        <span class="lbl">Book a Consultation</span>
+        <h2 class="stitle">Let's Support Your Loved One Together</h2>
+        <p style="color:var(--g400);line-height:1.9;font-size:.95rem">Your free consultation is the first step toward peace of mind. No pressure, no obligation — just a friendly conversation about how we can help.</p>
+        <div class="expect-box">
+          <h4>What to Expect</h4>
+          <ul class="ck-list">
+            <li><i class="fas fa-check-circle"></i> 30-minute call with our care team</li>
+            <li><i class="fas fa-check-circle"></i> Assessment of your loved one's needs</li>
+            <li><i class="fas fa-check-circle"></i> Recommended plan with transparent pricing</li>
+            <li><i class="fas fa-check-circle"></i> 100% free — no commitment required</li>
+          </ul>
+        </div>
+        <a href="#" class="btn btn-teal" onclick="demoCall();return false;"><i class="fas fa-phone"></i> Call to Book: (705) 855-0000</a>
+      </div>
+      <div class="fcard fu" style="transition-delay:.1s">
+        <h3>Book Your Free Consultation</h3>
+        <div class="fg-row">
+          <div class="fg"><label>Your Name *</label><input type="text" id="b-name" placeholder="Full name"/></div>
+          <div class="fg"><label>Phone *</label><input type="tel" id="b-phone" placeholder="(705) 000-0000"/></div>
+        </div>
+        <div class="fg"><label>Email *</label><input type="email" id="b-email" placeholder="your@email.com"/></div>
+        <div class="fg"><label>Senior's Needs</label><textarea id="b-needs" style="min-height:90px" placeholder="Briefly describe the support your loved one needs..."></textarea></div>
+        <div class="fg-row">
+          <div class="fg"><label>Preferred Date</label><input type="date" id="b-date"/></div>
+          <div class="fg"><label>Preferred Time</label>
+            <select id="b-time">
+              <option>Morning (8am–12pm)</option>
+              <option>Afternoon (12pm–4pm)</option>
+              <option>Evening (4pm–6pm)</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn btn-navy fsub" onclick="submitBook()"><i class="fas fa-calendar-check"></i> Request Consultation</button>
+        <div class="smsg" id="book-ok">✓ Request received! We'll confirm within 24 hours.</div>
+        <div class="emsg" id="book-err">Something went wrong. Please call or email us directly.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CTA BANNER ══════════════ -->
+<div class="cta-ban">
+  <div class="container">
+    <h2>Ready to Support Your Loved One?</h2>
+    <p>Compassionate, doctor-led care — one call away.</p>
+    <div class="cta-btns">
+      <a href="#book" class="btn btn-white"><i class="fas fa-calendar-check"></i> Schedule Consultation</a>
+      <a href="#" class="btn btn-gold" onclick="demoCall();return false;"><i class="fas fa-phone"></i> Call (705) 855-0000</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="container">
+    <div class="f-grid">
+      <div class="f-brand">
+        <div class="logo"><div class="logo-mark"><i class="fas fa-heart-pulse"></i></div><div class="logo-text">We Care <span style="color:var(--teal-md)">Sudbury</span></div></div>
+        <p>Doctor-led senior support services for Greater Sudbury and surrounding communities.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Wellness Check-ins</a></li>
+          <li><a href="#services">Companionship</a></li>
+          <li><a href="#services">Medication Reminders</a></li>
+          <li><a href="#services">Family Updates</a></li>
+          <li><a href="#services">Respite Support</a></li>
+          <li><a href="#services">Mobility Support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#why">Why Choose Us</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#employer">Employer Portal</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="#" onclick="demoCall();return false;">(705) 855-0000</a></li>
+          <li><a href="#" onclick="demoEmail();return false;">info@wecaresudbury.ca</a></li>
+          <li><a href="https://wa.me/17058550000" target="_blank" rel="noopener">WhatsApp Us</a></li>
+          <li><a href="#book">Book Consultation</a></li>
+          <li><a href="#contact">Send a Message</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bot">
+      <p>© 2026 We Care Sudbury. All rights reserved.</p>
+      <div class="f-leg"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Disclaimer</a></div>
+    </div>
+    <p class="f-disc">We Care Sudbury provides non-medical home support only and does not replace licensed medical care. For emergencies call 911.</p>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/17058550000" class="wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<!-- ══════════════ JAVASCRIPT ══════════════ -->
+<script>
+/* ─── CONFIG — FILL THESE IN BEFORE GOING LIVE ─── */
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbx84OqwnaO1Ex1bj7HRPmJZm-iihxM5MM3wYJoDy6oEPQ4ml2Lh5I7895irgIlRVKV8iQ/exec';
+const APPLICANTS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTbBcEQl-PIsTVvH2hNy29K5DllRRvCQjV9-e5VpoqWqJznQDGm7aqBG4JTawwdh3xC7kp4rXIC85GD/pub?gid=0&single=true&output=csv';
+const APPROVED_EMPLOYERS = [
+  'employer@example.com',
+  'recruiter@partner.ca'
+];
+
+/* ══════════════════════════════════════════
+   DEMO SYSTEM — shows nice popups for all
+   buttons that need real credentials.
+   Delete this whole block when going live.
+══════════════════════════════════════════ */
+let toastTimer;
+
+function showToast(msg, type='green'){
+  const t = document.getElementById('demoToast');
+  const m = document.getElementById('toastMsg');
+  const i = document.getElementById('toastIcon');
+  t.className = `show ${type}`;
+  m.textContent = msg;
+  i.className = type==='green' ? 'fas fa-check-circle' : type==='gold' ? 'fas fa-phone' : 'fas fa-info-circle';
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>{ t.classList.remove('show'); }, 3200);
+}
+
+function openDM({ icon='navy', iconI='fas fa-info-circle', title, desc, detail='', btns=[] }){
+  document.getElementById('dmIcon').className = `dm-icon ${icon}`;
+  document.getElementById('dmIconI').className = iconI;
+  document.getElementById('dmTitle').textContent = title;
+  document.getElementById('dmDesc').textContent = desc;
+  const det = document.getElementById('dmDetail');
+  if(detail){ det.innerHTML = detail; det.style.display='block'; }
+  else { det.style.display='none'; }
+  const b = document.getElementById('dmBtns');
+  b.innerHTML = btns.map(btn =>
+    `<button class="btn ${btn.cls}" onclick="${btn.fn}">${btn.label}</button>`
+  ).join('');
+  document.getElementById('demoModal').classList.add('show');
+}
+
+function closeDM(){ document.getElementById('demoModal').classList.remove('show'); }
+
+/* Individual demo handlers */
+function demoCall(){
+  openDM({
+    icon:'gold', iconI:'fas fa-phone',
+    title:'Ready to Call Us',
+    desc:'In the live site this dials (705) 855-0000 directly on your phone. Tap below to copy the number.',
+    detail:'<strong>📞 (705) 855-0000</strong><br>Mon–Fri 8am–6pm · Weekends by arrangement',
+    btns:[
+      { cls:'btn-gold', fn:'copyPhone();closeDM();', label:'📋 Copy Number' },
+      { cls:'btn-outline', fn:'closeDM()', label:'Close' }
+    ]
+  });
+}
+
+function copyPhone(){
+  navigator.clipboard.writeText('7058550000').catch(()=>{});
+  showToast('Phone number copied! (705) 855-0000', 'gold');
+}
+
+function demoEmail(){
+  openDM({
+    icon:'teal', iconI:'fas fa-envelope',
+    title:'Send Us an Email',
+    desc:'In the live site this opens your email app. Tap below to copy the address.',
+    detail:'<strong>✉️ info@wecaresudbury.ca</strong>',
+    btns:[
+      { cls:'btn-teal', fn:'copyEmail();closeDM();', label:'📋 Copy Email' },
+      { cls:'btn-outline', fn:'closeDM()', label:'Close' }
+    ]
+  });
+}
+
+function copyEmail(){
+  navigator.clipboard.writeText('info@wecaresudbury.ca').catch(()=>{});
+  showToast('Email copied! info@wecaresudbury.ca', 'green');
+}
+
+function demoPlan(name, price, features){
+  openDM({
+    icon:'navy', iconI:'fas fa-calendar-check',
+    title:`Start the ${name} Plan`,
+    desc:`Great choice! The ${name} plan (${price}) is a perfect fit for many Sudbury families.`,
+    detail:`<strong>Includes:</strong> ${features}<br><br>On the live site this scrolls to the consultation form to get you started.`,
+    btns:[
+      { cls:'btn-navy', fn:'closeDM();document.getElementById(\'book\').scrollIntoView({behavior:\'smooth\'});', label:'📅 Book Consultation' },
+      { cls:'btn-outline', fn:'closeDM()', label:'Maybe Later' }
+    ]
+  });
+}
+
+function demoReview(){
+  openDM({
+    icon:'navy', iconI:'fab fa-google',
+    title:'Leave a Google Review',
+    desc:'This button will open Google Maps to leave a review once your Google Place ID is set up.',
+    detail:'<strong>To activate:</strong> Go to Google Business Profile → Ask for Reviews → copy your review link, then replace <code>YOUR_REAL_GOOGLE_PLACE_ID</code> in the HTML.',
+    btns:[
+      { cls:'btn-navy', fn:'closeDM()', label:'Got it!' }
+    ]
+  });
+}
+
+function demoSignIn(){
+  const terms = document.getElementById('employerTermsConsent');
+  if(!terms.checked){
+    showToast('Please accept the employer terms first', 'navy');
+    return;
+  }
+  openDM({
+    icon:'navy', iconI:'fab fa-google',
+    title:'Google Sign-In (Demo)',
+    desc:'In the live site, this triggers real Google OAuth login. For demo, click below to simulate an approved employer signing in.',
+    detail:'<strong>Live setup needs:</strong> A Google Cloud OAuth Client ID pasted into the HTML where it says <code>YOUR_GOOGLE_CLIENT_ID_HERE</code>.',
+    btns:[
+      { cls:'btn-teal', fn:'closeDM();simulateEmployerLogin("Demo Employer","demo@approved.ca")', label:'✅ Simulate Approved Login' },
+      { cls:'btn-outline', fn:'closeDM();simulateDeniedLogin()', label:'❌ Simulate Denied Login' },
+      { cls:'btn-outline', fn:'closeDM()', label:'Cancel' }
+    ]
+  });
+}
+
+function simulateEmployerLogin(name, email){
+  document.getElementById('portalSignin').style.display  = 'none';
+  document.getElementById('portalDenied').style.display  = 'none';
+  document.getElementById('portalContent').style.display = 'block';
+  document.getElementById('portalUserName').textContent  = name;
+  showToast(`Signed in as ${name}`, 'green');
+}
+
+function simulateDeniedLogin(){
+  document.getElementById('portalSignin').style.display  = 'none';
+  document.getElementById('portalContent').style.display = 'none';
+  document.getElementById('portalDenied').style.display  = 'block';
+  document.getElementById('deniedEmail').textContent = '"notapproved@example.com" is not on the approved employer list.';
+}
+/* ══════════════════════════════════════════
+   END DEMO SYSTEM
+══════════════════════════════════════════ */
+
+/* ─── MOBILE MENU ─── */
+const hamBtn  = document.getElementById('hamBtn');
+const mobMenu = document.getElementById('mobMenu');
+hamBtn.addEventListener('click', () => mobMenu.classList.toggle('open'));
+function closeMob(){ mobMenu.classList.remove('open'); }
+
+/* ─── FAQ ─── */
+function toggleFaq(el){
+  const wasOpen = el.classList.contains('open');
+  document.querySelectorAll('.fi').forEach(f => f.classList.remove('open'));
+  if(!wasOpen) el.classList.add('open');
+}
+
+/* ─── SCROLL ANIMATIONS ─── */
+const io = new IntersectionObserver(
+  entries => entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); }
+  }),
+  { threshold: 0.10, rootMargin: '0px 0px -30px 0px' }
+);
+document.querySelectorAll('.fu').forEach((el, i) => {
+  const parent   = el.parentElement;
+  const siblings = parent ? [...parent.querySelectorAll(':scope > .fu')] : [];
+  const idx      = siblings.indexOf(el);
+  if(idx > 0) el.style.transitionDelay = `${idx * 0.07}s`;
+  io.observe(el);
+});
+
+/* ─── NAV SHADOW ─── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.style.boxShadow = window.scrollY > 50
+    ? '0 4px 28px rgba(13,43,69,.14)'
+    : '0 2px 8px rgba(13,43,69,.06)';
+});
+
+/* ─── SHEET SUBMIT ─── */
+async function submitToSheet(data){
+  if(SHEET_URL.includes('YOUR_GOOGLE')) return false;
+  try{
+    await fetch(SHEET_URL,{
+      method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(data)
+    });
+    return true;
+  }catch(e){ console.error('Sheet error:',e); return false; }
+}
+
+/* ─── APPLY FORM ─── */
+async function submitApply(){
+  const name    = document.getElementById('a-name').value.trim();
+  const phone   = document.getElementById('a-phone').value.trim();
+  const email   = document.getElementById('a-email').value.trim();
+  const role    = document.getElementById('a-role').value;
+  const avail   = document.getElementById('a-avail').value;
+  const exp     = document.getElementById('a-exp').value;
+  const resume  = document.getElementById('a-resume').value.trim();
+  const notes   = document.getElementById('a-notes').value.trim();
+  const consent = document.getElementById('a-consent').checked;
+  if(!name||!phone||!email||!role||!consent){
+    alert('Please fill in all required fields and check the consent box.'); return;
+  }
+  await submitToSheet({ formType:'applicant', name, email, phone, role, experience:exp, availability:avail, resumeLink:resume, notes, consent });
+  document.getElementById('apply-ok').classList.add('show');
+  document.getElementById('apply-err').classList.remove('show');
+  // Add to portal grid immediately
+  addCandidateCard({ name, role, experience:exp, availability:avail, notes, resumeLink:resume });
+}
+
+function addCandidateCard(a){
+  const grid = document.getElementById('candGrid');
+  const initials = a.name.split(' ').map(n=>n[0]).join('').toUpperCase().slice(0,2);
+  const card = document.createElement('div');
+  card.className = 'cand-card';
+  card.innerHTML = `
+    <div class="cand-top">
+      <div class="cand-av">${esc(initials)}</div>
+      <div><div class="cand-name">${esc(a.name)} <span class="new-badge">New</span></div><div class="cand-role">${esc(a.role)}</div></div>
+    </div>
+    <div class="cand-tags">
+      <span class="tag teal">${esc(a.experience)} exp</span>
+      <span class="tag">${esc(a.availability)}</span>
+    </div>
+    <p class="cand-info">${esc(a.notes||'Profile just submitted.')}</p>
+    ${a.resumeLink ? `<p class="resume-link"><a href="${escAttr(a.resumeLink)}" target="_blank" rel="noopener">View Resume / Profile</a></p>` : ''}
+    <p class="intro-request">To request an introduction, email <a href="mailto:employers@wecaresudbury.ca">employers@wecaresudbury.ca</a></p>`;
+  grid.prepend(card);
+}
+
+/* ─── CONTACT FORM ─── */
+async function submitContact(){
+  const firstName = document.getElementById('c-fname').value.trim();
+  const lastName  = document.getElementById('c-lname').value.trim();
+  const phone     = document.getElementById('c-phone').value.trim();
+  const email     = document.getElementById('c-email').value.trim();
+  const message   = document.getElementById('c-msg').value.trim();
+  if(!firstName||!email){ alert('Please fill in your first name and email.'); return; }
+  await submitToSheet({ formType:'contact', firstName, lastName, phone, email, message });
+  document.getElementById('con-ok').classList.add('show');
+}
+
+/* ─── BOOK FORM ─── */
+async function submitBook(){
+  const name          = document.getElementById('b-name').value.trim();
+  const phone         = document.getElementById('b-phone').value.trim();
+  const email         = document.getElementById('b-email').value.trim();
+  const needs         = document.getElementById('b-needs').value.trim();
+  const preferredDate = document.getElementById('b-date').value;
+  const preferredTime = document.getElementById('b-time').value;
+  if(!name||!phone||!email){ alert('Please fill in your name, phone, and email.'); return; }
+  await submitToSheet({ formType:'consultation', name, phone, email, needs, preferredDate, preferredTime });
+  document.getElementById('book-ok').classList.add('show');
+}
+
+/* ─── GOOGLE SIGN-IN ─── */
+function handleGoogleSignIn(response){
+  const termsAccepted = document.getElementById('employerTermsConsent').checked;
+  if(!termsAccepted){
+    alert('Please accept the employer terms before accessing the candidate directory.');
+    return;
+  }
+  const payload = parseJwt(response.credential);
+  const email   = (payload.email||'').toLowerCase();
+  document.getElementById('portalSignin').style.display = 'none';
+  if(APPROVED_EMPLOYERS.includes(email)){
+    document.getElementById('portalContent').style.display = 'block';
+    document.getElementById('portalUserName').textContent = payload.name || email;
+    loadApplicantsFromSheet();
+  } else {
+    document.getElementById('portalDenied').style.display = 'block';
+    document.getElementById('deniedEmail').textContent = `"${email}" is not on the approved employer list.`;
+  }
+}
+
+function resetPortal(){
+  document.getElementById('portalSignin').style.display  = 'block';
+  document.getElementById('portalDenied').style.display  = 'none';
+  document.getElementById('portalContent').style.display = 'none';
+  if(window.google && google.accounts) google.accounts.id.disableAutoSelect();
+}
+
+function parseJwt(token){
+  try{
+    const b = token.split('.')[1].replace(/-/g,'+').replace(/_/g,'/');
+    return JSON.parse(decodeURIComponent(atob(b).split('').map(c=>'%'+('00'+c.charCodeAt(0).toString(16)).slice(-2)).join('')));
+  }catch(e){ return {}; }
+}
+
+/* ─── LOAD APPLICANTS CSV ─── */
+async function loadApplicantsFromSheet(){
+  const grid = document.getElementById('candGrid');
+  if(APPLICANTS_CSV_URL.includes('YOUR_PUBLISHED')){ return; }
+  try{
+    const res  = await fetch(APPLICANTS_CSV_URL);
+    const text = await res.text();
+    const rows = parseCSV(text).slice(1).reverse();
+    if(!rows.length) return;
+    rows.forEach(cols => {
+      addCandidateCard({
+        name: anonymizeName(cols[1]||'Applicant'),
+        role: cols[4]||'Support Worker',
+        experience: cols[5]||'N/A',
+        availability: cols[6]||'N/A',
+        notes: cols[8]||'',
+        resumeLink: cols[7]||''
+      });
+    });
+  }catch(e){ console.error('CSV load error:',e); }
+}
+
+/* ─── FILTER CANDIDATES ─── */
+function filterCandidateCards(){
+  const role   = document.getElementById('candidateRoleFilter').value.toLowerCase();
+  const search = document.getElementById('candidateSearch').value.toLowerCase();
+  document.querySelectorAll('#candGrid .cand-card').forEach(card => {
+    const text = card.textContent.toLowerCase();
+    card.style.display = (!role||text.includes(role)) && (!search||text.includes(search)) ? '' : 'none';
+  });
+}
+
+/* ─── HELPERS ─── */
+function anonymizeName(n){
+  const p = String(n).trim().split(/\s+/);
+  return p.length===1 ? p[0] : `${p[0]} ${p[p.length-1][0]}.`;
+}
+
+function esc(v){
+  return String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
+}
+function escAttr(v){ return String(v).replace(/"/g,'&quot;').replace(/'/g,'&#039;'); }
+
+function parseCSV(text){
+  const rows=[]; let row=[],cell='',inQ=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i],n=text[i+1];
+    if(c==='"'&&inQ&&n==='"'){cell+='"';i++;}
+    else if(c==='"'){inQ=!inQ;}
+    else if(c===','&&!inQ){row.push(cell);cell='';}
+    else if((c==='\n'||c==='\r')&&!inQ){
+      if(cell||row.length){row.push(cell);rows.push(row);row=[];cell='';}
+      if(c==='\r'&&n==='\n')i++;
+    } else { cell+=c; }
+  }
+  if(cell||row.length){row.push(cell);rows.push(row);}
+  return rows;
+}
+</script>
 </body>
 </html>
