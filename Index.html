@@ -6,7 +6,7 @@
   <title>We Care Sudbury – Doctor-Led Home Support</title>
 
   <!-- Google Fonts -->
-  <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@300;400;600&display=swap)" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
     body {
@@ -14,6 +14,7 @@
       font-family: 'Open Sans', sans-serif;
       color: #333;
       background: #ffffff;
+      line-height: 1.6;
     }
     h1, h2, h3 {
       font-family: 'Montserrat', sans-serif;
@@ -31,14 +32,14 @@
 
     /* Hero */
     .hero {
-      background: url('[via.placeholder.com](https://via.placeholder.com/1600x900)') center/cover no-repeat;
+      background: url('https://via.placeholder.com/1600x900') center/cover no-repeat;
       padding: 120px 20px;
       color: white;
       text-align: left;
       position: relative;
     }
     .hero-overlay {
-      background: rgba(0,0,0,0.45);
+      background: rgba(0,0,0,0.55);
       position: absolute;
       top: 0; left: 0; right:0; bottom:0;
     }
@@ -48,6 +49,221 @@
       max-width: 600px;
     }
     .hero h1 {
+      font-size: 42px;
+      line-height: 1.2;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 25px;
+      border-radius: 6px;
+      font-weight: 600;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      transition: background 0.2s ease;
+    }
+    .btn-primary {
+      background: #1b72c3;
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: #155a9c;
+    }
+    .btn-secondary {
+      background: #44a574;
+      color: #fff;
+    }
+    .btn-secondary:hover {
+      background: #358259;
+    }
+
+    /* Contact Strip */
+    .contact-strip {
+      background: #f7f7f7;
+      padding: 12px;
+      text-align: center;
+      font-size: 15px;
+      color: #555;
+      border-bottom: 1px solid #eaeaea;
+    }
+
+    /* Section */
+    section {
+      padding: 60px 20px;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .bg-light {
+      background: #f7fafc;
+    }
+
+    /* Icon grid */
+    .icon-grid {
+      display: grid;
+      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .icon-card {
+      padding: 25px;
+      background: #f8f9fb;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .icon-card .icon {
+      font-size: 32px;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .icon-card h3 {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    /* Testimonials */
+    .testimonial {
+      background: #f3f7fc;
+      padding: 25px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-style: italic;
+      border-left: 4px solid #1b72c3;
+    }
+
+    /* CTA */
+    .cta {
+      background: #eaf3fb;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .cta h2 {
+      margin-bottom: 25px;
+    }
+
+    /* Footer */
+    footer {
+      background: #003c78;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media(max-width: 600px) {
+      .hero h1 { font-size: 30px; }
+      .hero p { font-size: 18px; }
+      .btn { display: block; margin-right: 0; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <h1>Doctor-Led Senior Support Services in Sudbury</h1>
+      <p>Helping seniors stay safe, supported, and independent at home while giving families peace of mind.</p>
+      <a class="btn btn-primary" href="#book">Book Free Consultation</a>
+      <a class="btn btn-secondary" href="tel:7055551234">Call Now</a>
+    </div>
+  </header>
+
+  <!-- CONTACT STRIP -->
+  <div class="contact-strip">
+    <span id="phone-contact">📞 (705) 555‑1234</span> &nbsp; | &nbsp; <span>✉️ info@wecaresudbury.ca</span> &nbsp; | &nbsp; Serving Greater Sudbury
+  </div>
+
+  <!-- TRUST SECTION -->
+  <section id="why-trust">
+    <h2 class="section-title">Why Families Trust Us</h2>
+    <div class="container icon-grid">
+      <div class="icon-card">
+        <span class="icon" role="img" aria-label="Stethoscope">🩺</span>
+        <h3>Doctor-Led Oversight</h3>
+      </div>
+      <div class="icon-card">
+        <span class="icon" role="img" aria-label="Handshake">🤝</span>
+        <h3>Compassionate Caregivers</h3>
+      </div>
+      <div class="icon-card">
+        <span class="icon" role="img" aria-label="Smartphone">📱</span>
+        <h3>Family Communication</h3>
+      </div>
+      <div class="icon-card">
+        <span class="icon" role="img" aria-label="Calendar">📅</span>
+        <h3>Flexible Care Plans</h3>
+      </div>
+      <div class="icon-card">
+        <span class="icon" role="img" aria-label="Magnifying Glass">🔍</span>
+        <h3>Background-Checked Staff</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <h2 class="section-title">Personalized Support for Every Need</h2>
+    <div class="container icon-grid">
+      <div class="icon-card"><h3>Wellness Visits</h3></div>
+      <div class="icon-card"><h3>Medication Reminders</h3></div>
+      <div class="icon-card"><h3>Companionship</h3></div>
+      <div class="icon-card"><h3>Transportation</h3></div>
+      <div class="icon-card"><h3>Appointment Support</h3></div>
+      <div class="icon-card"><h3>Respite Care</h3></div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="bg-light">
+    <h2 class="section-title">What Makes We Care Sudbury Different</h2>
+    <div class="container" style="max-width:700px;">
+      <ul style="line-height:1.9; font-size:18px;">
+        <li>Physician-led approach</li>
+        <li>Personalized care plans</li>
+        <li>Reliable communication and updates</li>
+        <li>Flexible scheduling</li>
+        <li>Affordable monthly plans</li>
+        <li>Compassionate, trained caregivers</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <h2 class="section-title">Families Who Trust Our Care</h2>
+    <div class="container">
+      <blockquote class="testimonial">
+        “We Care Sudbury gave me peace of mind knowing someone was checking on my mother while I lived out of town.” — Janet M.
+      </blockquote>
+      <blockquote class="testimonial">
+        “Their doctor involvement and regular updates make all the difference.” — Robert S.
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="book">
+    <h2>Ready to Talk About Home Support?</h2>
+    <a class="btn btn-primary" href="#book">Book Free Consultation</a>
+    <a class="btn btn-secondary" href="tel:7055551234">Call (705) 555‑1234</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 We Care Sudbury — Senior Home Support Services</p>
+  </footer>
+
+</body>
+</html>
       font-size: 42px;
       line-height: 1.2;
       margin-bottom: 15px;
