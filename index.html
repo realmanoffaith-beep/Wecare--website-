@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-<script src="https://accounts.google.com/gsi/client" async defer></script>
 <style>
 /* ═══════════════════ VARIABLES ═══════════════════ */
 :root{
@@ -267,6 +266,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,248,245
 .fg input,.fg select,.fg textarea{width:100%;padding:12px 16px;border:1.5px solid var(--g200);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--g800);transition:border-color .2s,box-shadow .2s;outline:none;background:#fff}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(13,43,69,.08)}
 .fg textarea{min-height:110px;resize:vertical;line-height:1.65}
+.fg input[type=file]{padding:10px 14px;cursor:pointer;font-size:.83rem;color:var(--g600)}
+.fg input[type=file]::-webkit-file-upload-button{background:var(--navy);color:#fff;border:none;border-radius:6px;padding:7px 14px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.78rem;margin-right:12px;cursor:pointer;transition:background .2s}
+.fg input[type=file]::-webkit-file-upload-button:hover{background:var(--navy-dk)}
 .fg-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .fsub{width:100%;justify-content:center;padding:15px;font-size:.95rem;margin-top:4px}
 .smsg{display:none;background:var(--teal-lt);border:1.5px solid var(--teal);color:var(--teal);border-radius:var(--r-sm);padding:14px 18px;font-size:.86rem;font-weight:600;margin-top:16px}
@@ -280,41 +282,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,248,245
 /* ═══════════════════ APPLY ═══════════════════ */
 #apply{padding:72px 0;background:var(--navy-lt)}
 
-/* ═══════════════════ EMPLOYER PORTAL ═══════════════════ */
+/* ═══════════════════ PSW REGISTRATION ═══════════════════ */
 #employer{padding:86px 0;background:#fff}
-.portal-wrap{max-width:900px;margin:0 auto}
-.portal-signin-box{background:var(--cream);border-radius:20px;padding:60px 44px;text-align:center;border:2px solid var(--g200)}
-.portal-signin-box > i.fa-lock{font-size:2.6rem;color:var(--navy);margin-bottom:20px}
-.portal-signin-box h3{font-family:'DM Sans',sans-serif;font-size:1.5rem;font-weight:700;margin-bottom:10px;color:var(--navy)}
-.portal-signin-box p{font-size:.93rem;color:var(--g400);margin-bottom:28px;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.8}
-.terms-row{max-width:480px;margin:0 auto 26px;text-align:left}
-.portal-denied{display:none;background:#fef2f2;border-radius:20px;padding:44px;text-align:center;border:2px solid #fca5a5}
-.portal-denied i{font-size:2.3rem;color:#dc2626;margin-bottom:16px}
-.portal-denied h3{color:#dc2626;font-family:'DM Sans',sans-serif;font-size:1.3rem;margin-bottom:8px}
-.portal-denied p{color:var(--g400);font-size:.9rem}
-.portal-content{display:none}
-.portal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;flex-wrap:wrap;gap:12px;padding-bottom:20px;border-bottom:1.5px solid var(--g200)}
-.portal-header h3{font-family:'DM Sans',sans-serif;font-size:1.2rem;font-weight:700;color:var(--navy)}
-.portal-header p{font-size:.83rem;color:var(--g400)}
-.portal-user-pill{background:var(--teal-lt);border-radius:50px;padding:9px 20px;font-size:.83rem;font-weight:600;color:var(--teal);display:flex;align-items:center;gap:8px}
-.portal-actions{display:flex;align-items:center;gap:12px}
-.candidate-filters{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
-.cand-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.cand-card{background:var(--cream);border-radius:var(--r);padding:26px;border:1.5px solid var(--g200);transition:all .3s}
-.cand-card:hover{box-shadow:var(--shadow-md);border-color:var(--navy)}
-.cand-top{display:flex;align-items:center;gap:14px;margin-bottom:16px}
-.cand-av{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--teal));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.1rem;flex-shrink:0}
-.cand-name{font-family:'DM Sans',sans-serif;font-weight:700;font-size:.97rem;color:var(--navy)}
-.cand-role{font-size:.78rem;color:var(--teal);font-weight:600}
-.cand-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:13px}
-.tag{background:var(--navy-lt);color:var(--navy);border-radius:50px;padding:4px 13px;font-size:.73rem;font-weight:600}
-.tag.teal{background:var(--teal-lt);color:var(--teal)}
-.cand-info{font-size:.83rem;color:var(--g400);line-height:1.7}
-.new-badge{background:var(--gold);color:#fff;font-size:.66rem;font-weight:700;padding:3px 9px;border-radius:50px;margin-left:6px}
-.portal-note{text-align:center;margin-top:26px;font-size:.82rem;color:var(--g400)}
-.portal-note a,.resume-link a,.intro-request a{color:var(--navy);font-weight:700}
-.resume-link{margin-top:12px;font-size:.82rem}
-.intro-request{margin-top:10px;font-size:.78rem;color:var(--g400)}
 
 /* ═══════════════════ CONTACT ═══════════════════ */
 #contact{padding:86px 0;background:var(--cream)}
@@ -432,7 +401,7 @@ footer ul li a:hover{color:#fff}
   .hamburger{display:block}
   .hero-grid{grid-template-columns:1fr;gap:40px;padding:48px 0}
   .hero-card{display:none}
-  .pgrid,.why-grid,.abt-grid,.con-grid,.book-grid,.pos-grid,.faq-grid,.cand-grid,.candidate-filters{grid-template-columns:1fr}
+  .pgrid,.why-grid,.abt-grid,.con-grid,.book-grid,.pos-grid,.faq-grid{grid-template-columns:1fr}
   .pcard.feat{transform:scale(1)}
   .sgrid{grid-template-columns:1fr 1fr}
   .blog-grid{grid-template-columns:1fr}
@@ -442,7 +411,6 @@ footer ul li a:hover{color:#fff}
   .cstrip-in{gap:16px}
   .hero-btns,.cta-btns,.rev-btns{flex-direction:column;align-items:stretch}
   .rev-box{padding:40px 24px}
-  .portal-signin-box{padding:40px 24px}
   .abt-float{display:none}
 }
 @media(max-width:480px){
@@ -481,7 +449,7 @@ footer ul li a:hover{color:#fff}
       <a href="#pricing">Pricing</a>
       <a href="#why">Why Us</a>
       <a href="#careers">Careers</a>
-      <a href="#employer">Employers</a>
+      <a href="#employer">Join PSW</a>
       <a href="#reviews">Reviews</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
@@ -497,7 +465,7 @@ footer ul li a:hover{color:#fff}
   <a href="#pricing" onclick="closeMob()">Pricing</a>
   <a href="#why" onclick="closeMob()">Why Choose Us</a>
   <a href="#careers" onclick="closeMob()">Careers</a>
-  <a href="#employer" onclick="closeMob()">Employer Portal</a>
+  <a href="#employer" onclick="closeMob()">Join as PSW</a>
   <a href="#reviews" onclick="closeMob()">Reviews</a>
   <a href="#faq" onclick="closeMob()">FAQ</a>
   <a href="#contact" onclick="closeMob()">Contact</a>
@@ -865,110 +833,67 @@ footer ul li a:hover{color:#fff}
   </div>
 </section>
 
-<!-- ══════════════ EMPLOYER PORTAL ══════════════ -->
+<!-- ══════════════ PSW REGISTRATION ══════════════ -->
 <section id="employer">
   <div class="container">
     <div class="text-center fu" style="margin-bottom:52px">
-      <span class="lbl">Employer Portal</span>
-      <h2 class="stitle">Job Seeker Directory</h2>
-      <p class="ssub">Verified employers can browse candidate profiles. Sign in with your approved Google account.</p>
+      <span class="lbl">Join Our Team</span>
+      <h2 class="stitle">PSW Registration</h2>
+      <p class="ssub">Register as a Personal Support Worker with Support Health Sudbury. Upload your resume and certification — we'll review and reach out about available opportunities.</p>
     </div>
-    <div class="portal-wrap">
+    <div class="container-sm" style="padding:0">
+      <div class="fcard fu">
+        <span class="lbl">Personal Support Worker</span>
+        <h3>Create Your PSW Profile</h3>
+        <p class="form-intro">Your information is confidential and used only by Support Health Sudbury for recruitment and placement purposes.</p>
 
-      <!-- Sign In -->
-      <div class="portal-signin-box fu" id="portalSignin">
-        <i class="fas fa-lock"></i>
-        <h3>Employer Login Required</h3>
-        <p>This directory is restricted to verified Support Health Sudbury partner employers. Sign in with your approved Google account to access candidate profiles.</p>
-        <div class="check-row terms-row">
-          <input type="checkbox" id="employerTermsConsent"/>
-          <label for="employerTermsConsent">I agree that if my organization hires a candidate introduced through Support Health Sudbury, a placement/referral fee may apply under employer terms.</label>
+        <div class="fg-row">
+          <div class="fg"><label>Full Name *</label><input type="text" id="psw-name" placeholder="Jane Smith"/></div>
+          <div class="fg"><label>Phone Number *</label><input type="tel" id="psw-phone" placeholder="(705) 000-0000"/></div>
         </div>
-        <!-- Google Sign-In -->
-        <div id="g_id_onload"
-             data-client_id="288336110507-kh30p00g0ug5ad1qtst7r4uasv4lhr6v.apps.googleusercontent.com"
-             data-callback="handleGoogleSignIn"
-             data-auto_prompt="false">
-        </div>
-        <div id="gSignInWrap">
-          <div class="g_id_signin"
-               data-type="standard"
-               data-size="large"
-               data-theme="filled_blue"
-               data-text="signin_with"
-               data-shape="pill"
-               data-logo_alignment="left"
-               data-width="280">
-          </div>
-        </div>
-        <p style="margin-top:22px;font-size:.78rem;color:var(--g400)">To request employer access, email <a href="mailto:employers@supporthealthsudbury.ca" style="color:var(--navy);font-weight:600">employers@supporthealthsudbury.ca</a></p>
-      </div>
 
-      <!-- Denied -->
-      <div class="portal-denied" id="portalDenied">
-        <i class="fas fa-ban"></i>
-        <h3>Access Denied</h3>
-        <p id="deniedEmail"></p>
-        <p style="margin-top:8px">Your account is not on the approved employer list. To request access, email <a href="mailto:employers@supporthealthsudbury.ca" style="color:var(--navy)">employers@supporthealthsudbury.ca</a></p>
-        <button onclick="resetPortal()" class="btn btn-outline" style="margin-top:20px">Try Another Account</button>
-      </div>
+        <div class="fg"><label>Email Address *</label><input type="email" id="psw-email" placeholder="your@email.com"/></div>
 
-      <!-- Portal Content -->
-      <div class="portal-content" id="portalContent">
-        <div class="portal-header">
-          <div>
-            <h3>Job Seeker Profiles</h3>
-            <p>Showing active candidates in Greater Sudbury</p>
-          </div>
-          <div class="portal-actions">
-            <div class="portal-user-pill"><i class="fas fa-circle-check"></i> Signed in as <strong id="portalUserName"></strong></div>
-            <button onclick="resetPortal()" class="btn btn-outline btn-sm"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
-          </div>
-        </div>
-        <div class="candidate-filters">
+        <div class="fg"><label>Home Address *</label><input type="text" id="psw-address" placeholder="Street, City, Postal Code"/></div>
+
+        <div class="fg-row">
           <div class="fg">
-            <label>Filter by Role</label>
-            <select id="candidateRoleFilter" onchange="filterCandidateCards()">
-              <option value="">All Roles</option>
-              <option value="psw">PSW</option><option value="rpn">RPN</option>
-              <option value="rn">RN</option><option value="caregiver">Caregiver</option>
+            <label>Years of Experience</label>
+            <select id="psw-exp">
+              <option>0–1 years</option><option>1–3 years</option><option>3–5 years</option><option>5+ years</option>
             </select>
           </div>
           <div class="fg">
-            <label>Search Candidates</label>
-            <input type="text" id="candidateSearch" placeholder="Search experience, notes, availability..." oninput="filterCandidateCards()"/>
+            <label>Availability</label>
+            <select id="psw-avail">
+              <option>Full-time</option><option>Part-time</option><option>Weekends Only</option><option>Flexible</option>
+            </select>
           </div>
         </div>
-        <div class="cand-grid" id="candGrid">
-          <!-- Sample profiles -->
-          <div class="cand-card">
-            <div class="cand-top"><div class="cand-av">MT</div><div><div class="cand-name">Maria T. <span class="new-badge">New</span></div><div class="cand-role">Personal Support Worker (PSW)</div></div></div>
-            <div class="cand-tags"><span class="tag">PSW Certified</span><span class="tag teal">3–5 yrs exp</span><span class="tag">Full-time</span></div>
-            <p class="cand-info">Bilingual (English/French). Specializes in dementia care and mobility support. Available immediately.</p>
-            <p class="intro-request">To request an introduction, email <a href="mailto:employers@supporthealthsudbury.ca?subject=Candidate Intro - Maria T.">employers@supporthealthsudbury.ca</a></p>
-          </div>
-          <div class="cand-card">
-            <div class="cand-top"><div class="cand-av">JK</div><div><div class="cand-name">James K.</div><div class="cand-role">Registered Practical Nurse (RPN)</div></div></div>
-            <div class="cand-tags"><span class="tag">RPN Licensed</span><span class="tag teal">5+ yrs exp</span><span class="tag">Part-time</span></div>
-            <p class="cand-info">Experienced in senior home care, medication management, and wound care. Flexible evenings.</p>
-            <p class="intro-request">To request an introduction, email <a href="mailto:employers@supporthealthsudbury.ca?subject=Candidate Intro - James K.">employers@supporthealthsudbury.ca</a></p>
-          </div>
-          <div class="cand-card">
-            <div class="cand-top"><div class="cand-av">AD</div><div><div class="cand-name">Amina D. <span class="new-badge">New</span></div><div class="cand-role">Caregiver / Companion Aide</div></div></div>
-            <div class="cand-tags"><span class="tag teal">1–3 yrs exp</span><span class="tag">Weekends</span></div>
-            <p class="cand-info">Warm and patient with experience in elderly companionship and light household assistance.</p>
-            <p class="intro-request">To request an introduction, email <a href="mailto:employers@supporthealthsudbury.ca?subject=Candidate Intro - Amina D.">employers@supporthealthsudbury.ca</a></p>
-          </div>
-          <div class="cand-card">
-            <div class="cand-top"><div class="cand-av">RL</div><div><div class="cand-name">Robert L.</div><div class="cand-role">Personal Support Worker (PSW)</div></div></div>
-            <div class="cand-tags"><span class="tag">PSW Certified</span><span class="tag teal">1–3 yrs exp</span><span class="tag">Flexible</span></div>
-            <p class="cand-info">Trained in fall prevention, personal hygiene assistance, and client communication. Reliable transportation.</p>
-            <p class="intro-request">To request an introduction, email <a href="mailto:employers@supporthealthsudbury.ca?subject=Candidate Intro - Robert L.">employers@supporthealthsudbury.ca</a></p>
-          </div>
-        </div>
-        <p class="portal-note">Contact <a href="mailto:employers@supporthealthsudbury.ca">employers@supporthealthsudbury.ca</a> to connect with a candidate. Profiles updated as applications are received.</p>
-      </div>
 
+        <div class="fg">
+          <label>Upload Resume *</label>
+          <input type="file" id="psw-resume" accept=".pdf,.doc,.docx"/>
+          <p style="font-size:.76rem;color:var(--g400);margin-top:6px">PDF or Word document, max 5MB</p>
+        </div>
+
+        <div class="fg">
+          <label>Upload PSW Certificate *</label>
+          <input type="file" id="psw-cert" accept=".pdf,.jpg,.jpeg,.png"/>
+          <p style="font-size:.76rem;color:var(--g400);margin-top:6px">PDF or image of your certification, max 5MB</p>
+        </div>
+
+        <div class="fg"><label>Additional Notes</label><textarea id="psw-notes" placeholder="Languages spoken, specializations, references, etc."></textarea></div>
+
+        <div class="check-row">
+          <input type="checkbox" id="psw-consent"/>
+          <label for="psw-consent">I consent to Support Health Sudbury storing my information, resume, and certificate for recruitment and placement purposes. My information will not be shared publicly without my permission.</label>
+        </div>
+
+        <button class="btn btn-navy fsub" onclick="submitPSW()" id="psw-submit-btn"><i class="fas fa-paper-plane"></i> Submit Registration</button>
+        <div class="smsg" id="psw-ok">✓ Registration submitted! We'll review your profile and be in touch within 2 business days.</div>
+        <div class="emsg" id="psw-err">Something went wrong. Please call (705) 822-7935 or email us directly.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1107,7 +1032,7 @@ footer ul li a:hover{color:#fff}
           <li><a href="#why">Why Choose Us</a></li>
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="#careers">Careers</a></li>
-          <li><a href="#employer">Employer Portal</a></li>
+          <li><a href="#employer">PSW Registration</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
@@ -1137,11 +1062,6 @@ footer ul li a:hover{color:#fff}
 <script>
 /* ─── CONFIG — FILL THESE IN BEFORE GOING LIVE ─── */
 const SHEET_URL = 'https://script.google.com/macros/s/AKfycbx84OqwnaO1Ex1bj7HRPmJZm-iihxM5MM3wYJoDy6oEPQ4ml2Lh5I7895irgIlRVKV8iQ/exec';
-const APPLICANTS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTbBcEQl-PIsTVvH2hNy29K5DllRRvCQjV9-e5VpoqWqJznQDGm7aqBG4JTawwdh3xC7kp4rXIC85GD/pub?gid=0&single=true&output=csv';
-const APPROVED_EMPLOYERS = [
-  'employer@example.com',
-  'recruiter@partner.ca'
-];
 
 /* ══════════════════════════════════════════
    DEMO SYSTEM — shows nice popups for all
@@ -1240,39 +1160,6 @@ function demoReview(){
   });
 }
 
-function demoSignIn(){
-  const terms = document.getElementById('employerTermsConsent');
-  if(!terms.checked){
-    showToast('Please accept the employer terms first', 'navy');
-    return;
-  }
-  openDM({
-    icon:'navy', iconI:'fab fa-google',
-    title:'Google Sign-In (Demo)',
-    desc:'In the live site, this triggers real Google OAuth login. For demo, click below to simulate an approved employer signing in.',
-    detail:'<strong>Live setup needs:</strong> A Google Cloud OAuth Client ID pasted into the HTML where it says <code>YOUR_GOOGLE_CLIENT_ID_HERE</code>.',
-    btns:[
-      { cls:'btn-teal', fn:'closeDM();simulateEmployerLogin("Demo Employer","demo@approved.ca")', label:'✅ Simulate Approved Login' },
-      { cls:'btn-outline', fn:'closeDM();simulateDeniedLogin()', label:'❌ Simulate Denied Login' },
-      { cls:'btn-outline', fn:'closeDM()', label:'Cancel' }
-    ]
-  });
-}
-
-function simulateEmployerLogin(name, email){
-  document.getElementById('portalSignin').style.display  = 'none';
-  document.getElementById('portalDenied').style.display  = 'none';
-  document.getElementById('portalContent').style.display = 'block';
-  document.getElementById('portalUserName').textContent  = name;
-  showToast(`Signed in as ${name}`, 'green');
-}
-
-function simulateDeniedLogin(){
-  document.getElementById('portalSignin').style.display  = 'none';
-  document.getElementById('portalContent').style.display = 'none';
-  document.getElementById('portalDenied').style.display  = 'block';
-  document.getElementById('deniedEmail').textContent = '"notapproved@example.com" is not on the approved employer list.';
-}
 /* ══════════════════════════════════════════
    END DEMO SYSTEM
 ══════════════════════════════════════════ */
@@ -1343,28 +1230,6 @@ async function submitApply(){
   await submitToSheet({ formType:'applicant', name, email, phone, role, experience:exp, availability:avail, resumeLink:resume, notes, consent });
   document.getElementById('apply-ok').classList.add('show');
   document.getElementById('apply-err').classList.remove('show');
-  // Add to portal grid immediately
-  addCandidateCard({ name, role, experience:exp, availability:avail, notes, resumeLink:resume });
-}
-
-function addCandidateCard(a){
-  const grid = document.getElementById('candGrid');
-  const initials = a.name.split(' ').map(n=>n[0]).join('').toUpperCase().slice(0,2);
-  const card = document.createElement('div');
-  card.className = 'cand-card';
-  card.innerHTML = `
-    <div class="cand-top">
-      <div class="cand-av">${esc(initials)}</div>
-      <div><div class="cand-name">${esc(a.name)} <span class="new-badge">New</span></div><div class="cand-role">${esc(a.role)}</div></div>
-    </div>
-    <div class="cand-tags">
-      <span class="tag teal">${esc(a.experience)} exp</span>
-      <span class="tag">${esc(a.availability)}</span>
-    </div>
-    <p class="cand-info">${esc(a.notes||'Profile just submitted.')}</p>
-    ${a.resumeLink ? `<p class="resume-link"><a href="${escAttr(a.resumeLink)}" target="_blank" rel="noopener">View Resume / Profile</a></p>` : ''}
-    <p class="intro-request">To request an introduction, email <a href="mailto:employers@supporthealthsudbury.ca">employers@supporthealthsudbury.ca</a></p>`;
-  grid.prepend(card);
 }
 
 /* ─── CONTACT FORM ─── */
@@ -1392,114 +1257,80 @@ async function submitBook(){
   document.getElementById('book-ok').classList.add('show');
 }
 
-/* ─── GOOGLE SIGN-IN ─── */
-
-// Intercept Google button click to check terms first
-document.addEventListener('DOMContentLoaded', () => {
-  // Poll until the Google button renders, then wrap it
-  const poll = setInterval(() => {
-    const gBtn = document.querySelector('.g_id_signin iframe');
-    const wrap = document.getElementById('gSignInWrap');
-    if(gBtn && wrap){
-      wrap.addEventListener('click', (e) => {
-        const terms = document.getElementById('employerTermsConsent');
-        if(!terms.checked){
-          e.stopPropagation();
-          e.preventDefault();
-          showToast('Please accept the employer terms first ☝️', 'navy');
-        }
-      }, true);
-      clearInterval(poll);
-    }
-  }, 300);
-});
-
-function handleGoogleSignIn(response){
-  const payload = parseJwt(response.credential);
-  const email   = (payload.email||'').toLowerCase();
-  document.getElementById('portalSignin').style.display = 'none';
-  if(APPROVED_EMPLOYERS.includes(email)){
-    document.getElementById('portalContent').style.display = 'block';
-    document.getElementById('portalUserName').textContent = payload.name || email;
-    loadApplicantsFromSheet();
-    showToast(`Welcome, ${payload.name || email}!`, 'green');
-  } else {
-    document.getElementById('portalDenied').style.display = 'block';
-    document.getElementById('deniedEmail').textContent = `"${email}" is not on the approved employer list.`;
-  }
-}
-
-function resetPortal(){
-  document.getElementById('portalSignin').style.display  = 'block';
-  document.getElementById('portalDenied').style.display  = 'none';
-  document.getElementById('portalContent').style.display = 'none';
-  if(window.google && google.accounts) google.accounts.id.disableAutoSelect();
-}
-
-function parseJwt(token){
-  try{
-    const b = token.split('.')[1].replace(/-/g,'+').replace(/_/g,'/');
-    return JSON.parse(decodeURIComponent(atob(b).split('').map(c=>'%'+('00'+c.charCodeAt(0).toString(16)).slice(-2)).join('')));
-  }catch(e){ return {}; }
-}
-
-/* ─── LOAD APPLICANTS CSV ─── */
-async function loadApplicantsFromSheet(){
-  const grid = document.getElementById('candGrid');
-  if(APPLICANTS_CSV_URL.includes('YOUR_PUBLISHED')){ return; }
-  try{
-    const res  = await fetch(APPLICANTS_CSV_URL);
-    const text = await res.text();
-    const rows = parseCSV(text).slice(1).reverse();
-    if(!rows.length) return;
-    rows.forEach(cols => {
-      addCandidateCard({
-        name: anonymizeName(cols[1]||'Applicant'),
-        role: cols[4]||'Support Worker',
-        experience: cols[5]||'N/A',
-        availability: cols[6]||'N/A',
-        notes: cols[8]||'',
-        resumeLink: cols[7]||''
-      });
-    });
-  }catch(e){ console.error('CSV load error:',e); }
-}
-
-/* ─── FILTER CANDIDATES ─── */
-function filterCandidateCards(){
-  const role   = document.getElementById('candidateRoleFilter').value.toLowerCase();
-  const search = document.getElementById('candidateSearch').value.toLowerCase();
-  document.querySelectorAll('#candGrid .cand-card').forEach(card => {
-    const text = card.textContent.toLowerCase();
-    card.style.display = (!role||text.includes(role)) && (!search||text.includes(search)) ? '' : 'none';
+/* ─── PSW REGISTRATION FORM ─── */
+function fileToBase64(file){
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result.split(',')[1]); // strip data: prefix
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
   });
 }
 
-/* ─── HELPERS ─── */
-function anonymizeName(n){
-  const p = String(n).trim().split(/\s+/);
-  return p.length===1 ? p[0] : `${p[0]} ${p[p.length-1][0]}.`;
-}
+async function submitPSW(){
+  const name     = document.getElementById('psw-name').value.trim();
+  const phone    = document.getElementById('psw-phone').value.trim();
+  const email    = document.getElementById('psw-email').value.trim();
+  const address  = document.getElementById('psw-address').value.trim();
+  const exp      = document.getElementById('psw-exp').value;
+  const avail    = document.getElementById('psw-avail').value;
+  const notes    = document.getElementById('psw-notes').value.trim();
+  const consent  = document.getElementById('psw-consent').checked;
+  const resumeFile = document.getElementById('psw-resume').files[0];
+  const certFile   = document.getElementById('psw-cert').files[0];
 
-function esc(v){
-  return String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
-}
-function escAttr(v){ return String(v).replace(/"/g,'&quot;').replace(/'/g,'&#039;'); }
-
-function parseCSV(text){
-  const rows=[]; let row=[],cell='',inQ=false;
-  for(let i=0;i<text.length;i++){
-    const c=text[i],n=text[i+1];
-    if(c==='"'&&inQ&&n==='"'){cell+='"';i++;}
-    else if(c==='"'){inQ=!inQ;}
-    else if(c===','&&!inQ){row.push(cell);cell='';}
-    else if((c==='\n'||c==='\r')&&!inQ){
-      if(cell||row.length){row.push(cell);rows.push(row);row=[];cell='';}
-      if(c==='\r'&&n==='\n')i++;
-    } else { cell+=c; }
+  if(!name||!phone||!email||!address||!consent){
+    alert('Please fill in all required fields and check the consent box.'); return;
   }
-  if(cell||row.length){row.push(cell);rows.push(row);}
-  return rows;
+  if(!resumeFile || !certFile){
+    alert('Please upload both your resume and PSW certificate.'); return;
+  }
+
+  const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+  if(resumeFile.size > MAX_SIZE || certFile.size > MAX_SIZE){
+    alert('Files must be under 5MB each.'); return;
+  }
+
+  const btn = document.getElementById('psw-submit-btn');
+  const originalText = btn.innerHTML;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Uploading...';
+  btn.disabled = true;
+
+  try{
+    const [resumeBase64, certBase64] = await Promise.all([
+      fileToBase64(resumeFile),
+      fileToBase64(certFile)
+    ]);
+
+    await submitToSheet({
+      formType: 'psw',
+      name, email, phone, address,
+      experience: exp, availability: avail, notes, consent,
+      resumeFileName: resumeFile.name,
+      resumeFileType: resumeFile.type,
+      resumeBase64,
+      certFileName: certFile.name,
+      certFileType: certFile.type,
+      certBase64
+    });
+
+    document.getElementById('psw-ok').classList.add('show');
+    document.getElementById('psw-err').classList.remove('show');
+    document.getElementById('psw-name').value = '';
+    document.getElementById('psw-phone').value = '';
+    document.getElementById('psw-email').value = '';
+    document.getElementById('psw-address').value = '';
+    document.getElementById('psw-notes').value = '';
+    document.getElementById('psw-resume').value = '';
+    document.getElementById('psw-cert').value = '';
+    document.getElementById('psw-consent').checked = false;
+  }catch(err){
+    console.error('PSW submit error:', err);
+    document.getElementById('psw-err').classList.add('show');
+  }finally{
+    btn.innerHTML = originalText;
+    btn.disabled = false;
+  }
 }
 </script>
 </body>
